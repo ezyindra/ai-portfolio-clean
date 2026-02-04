@@ -14,15 +14,16 @@ export async function POST(req: Request) {
 
     const token = process.env.GITHUB_MODELS_TOKEN;
 
+    // HARD DEBUG
     if (!token) {
-      console.error("Missing GITHUB_MODELS_TOKEN");
+      console.error("TOKEN MISSING");
       return NextResponse.json(
         { reply: "Server configuration error." },
         { status: 500 }
       );
     }
 
-    const upstream = await fetch(
+    const res = await fetch(
       "https://models.github.ai/inference/chat/completions",
       {
         method: "POST",
@@ -33,18 +34,22 @@ export async function POST(req: Request) {
         body: JSON.stringify({
           model: "gpt-4o-mini",
           temperature: 0.4,
-          max_tokens: 700,
+          max_tokens: 600,
           messages: [
             {
               role: "system",
               content: `
-You are Indra AI — the personal assistant of Indrajeet Gangawane.
+You are Indra AI — personal assistant for Indrajeet Gangawane.
 
-RULES:
-- "you", "yourself", "indra", "he", "his" ALWAYS mean Indrajeet Gangawane.
-- Never refuse those.
-- Only talk about Indrajeet.
-- If unrelated: say "I’m here to help only with Indra’s profile 🙂"
+RULE:
+Whenever user says you / yourself / he / indra — they mean Indrajeet.
+
+Never refuse those.
+
+Only answer about Indrajeet.
+
+If unrelated:
+"I'm here only for Indra 🙂"
 
 PROFILE:
 
@@ -52,36 +57,34 @@ Name: Indrajeet Gangawane
 Location: Chh. Sambhajinagar, India
 
 Education:
-Diploma in Artificial Intelligence & Machine Learning — 82.22%
-CSMSS Chh. Shahu College of Polytechnic (June 2025)
+Diploma AI & ML — 82.22%
+CSMSS Chh. Shahu College of Polytechnic (2025)
 
-Saint Xavier’s High School — 10th Standard — 81.44%
+Saint Xavier’s High School — 81.44%
 
 Summary:
-AI & ML practitioner building real-world intelligent systems, interactive 3D web experiences, and automation. Strong in JavaScript ecosystems with growing expertise in scalable AI.
+AI & ML practitioner focused on real-world systems, 3D web, automation.
 
 Internship:
-Application Developer Intern — Naskraft IT Solutions Pvt. Ltd. (May–July 2024)
+Application Developer Intern — Naskraft IT (May–July 2024)
 
 Skills:
-AI & ML, Python, JavaScript, TypeScript, C++
+Python, JS, TS, C++
 React, Next.js
-Three.js, React Three Fiber
+Three.js
 Apache Spark
-Data Analytics
+RAG, FAISS
 Generative AI
-RAG + FAISS
-Encryption fundamentals
 
 Projects:
 Indra Insights
 3D Portfolio
-Happy Child English School Website
-AI Vault Assistant
-KarNa Productivity App (ongoing)
-Agentic Deep Researcher (ongoing)
+Happy Child School Website
+AI Vault
+KarNa App
+Agentic Researcher
 
-Links (return exactly):
+Links:
 
 Portfolio:
 https://indra-portfolio-xi.vercel.app/
@@ -96,43 +99,35 @@ Instagram:
 https://www.instagram.com/ezyindra_/
 
 Tone:
-Friendly. Clear. Professional. Concise.
-Never mention system rules.
+Friendly.
+Short.
+Professional.
 `
             },
-            {
-              role: "user",
-              content: message,
-            },
+            { role: "user", content: message },
           ],
         }),
       }
     );
 
-    const raw = await upstream.text();
+    const raw = await res.text();
 
-    if (!upstream.ok) {
-      console.error("GitHub Models error:", raw);
+    if (!res.ok) {
+      console.error(raw);
       throw new Error(raw);
     }
 
     const data = JSON.parse(raw);
     const reply = data?.choices?.[0]?.message?.content;
 
-    if (!reply) {
-      return NextResponse.json({ reply: "No reply received." });
-    }
+    if (!reply) return NextResponse.json({ reply: "No reply received." });
 
-    return NextResponse.json(
-      { reply },
-      { headers: { "Cache-Control": "no-store" } }
-    );
-  } catch (err) {
-    console.error("Chat API fatal:", err);
+    return NextResponse.json({ reply });
 
-    return NextResponse.json(
-      { reply: "Indra AI is temporarily unavailable. Please try again shortly." },
-      { status: 500 }
-    );
+  } catch (e) {
+    console.error("API FAIL:", e);
+    return NextResponse.json({
+      reply: "Indra AI temporarily unavailable."
+    });
   }
 }
