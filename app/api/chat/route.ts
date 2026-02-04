@@ -5,23 +5,24 @@ export const dynamic = "force-dynamic";
 
 export async function POST(req: Request) {
   try {
-    const { message } = await req.json();
+    const body = await req.json();
+    const message = body?.message;
 
     if (!message) {
-      return NextResponse.json({ reply: "Please type something 🙂" });
+      return NextResponse.json({ reply: "Missing message." }, { status: 400 });
     }
 
     const token = process.env.GITHUB_TOKEN;
 
     if (!token) {
-      console.error("Missing GITHUB_TOKEN on server");
+      console.error("GITHUB_TOKEN not found on server");
       return NextResponse.json(
         { reply: "Server configuration error." },
         { status: 500 }
       );
     }
 
-    const response = await fetch(
+    const upstream = await fetch(
       "https://models.github.ai/inference/chat/completions",
       {
         method: "POST",
@@ -37,11 +38,12 @@ export async function POST(req: Request) {
             {
               role: "system",
               content: `
-You are Indra AI — friendly personal assistant for Indrajeet Gangawane.
+You are Indra AI — a friendly, casual personal assistant for Indrajeet Gangawane.
 
-RULES:
-Only talk about Indra.
-If unrelated: reply politely you only help about Indra.
+Rules:
+- Only answer about Indra.
+- If unrelated: say you only help with Indra 🙂
+- Be natural and concise.
 
 Profile:
 Indrajeet Gangawane — AI & ML practitioner from Chh. Sambhajinagar, India.
@@ -51,19 +53,17 @@ Diploma AI & ML — 82.22%
 Saint Xavier’s High School — 81.44%
 
 Skills:
-AI/ML, Python, JS, TS, React, Next.js, Three.js, Apache Spark.
+AI/ML, Python, JavaScript, TypeScript, React, Next.js, Three.js, Apache Spark, GenAI.
 
 Projects:
-Indra Insights, 3D Portfolio, AI Vault Assistant.
+3D Portfolio, AI Vault Assistant, Indra Insights, School Website, KarNa App.
 
 Links:
+Portfolio: https://indra-portfolio-xi.vercel.app/
 GitHub: https://github.com/ezyindra
 LinkedIn: https://www.linkedin.com/in/indra0/
 Instagram: https://www.instagram.com/ezyindra_/
-Portfolio: https://indra-portfolio-xi.vercel.app/
-
-Tone: casual, friendly, short answers.
-`
+`,
             },
             {
               role: "user",
@@ -74,10 +74,10 @@ Tone: casual, friendly, short answers.
       }
     );
 
-    const text = await response.text();
+    const text = await upstream.text();
 
-    if (!response.ok) {
-      console.error("GitHub Models error:", text);
+    if (!upstream.ok) {
+      console.error("Upstream error:", text);
       throw new Error(text);
     }
 
@@ -88,10 +88,10 @@ Tone: casual, friendly, short answers.
 
     return NextResponse.json({ reply });
   } catch (err) {
-    console.error("CHAT API ERROR:", err);
-
-    return NextResponse.json({
-      reply: "Indra AI is temporarily unavailable. Please try again shortly."
-    });
+    console.error("Chat API crash:", err);
+    return NextResponse.json(
+      { reply: "Indra AI is temporarily unavailable. Please try again." },
+      { status: 500 }
+    );
   }
 }
