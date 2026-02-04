@@ -5,25 +5,93 @@ export const dynamic = "force-dynamic";
 
 export async function POST(req: Request) {
   try {
-    const { message } = await req.json();
+    const body = await req.json();
+    const message = body?.message;
 
     if (!message) {
-      return NextResponse.json({ error: "Missing message" }, { status: 400 });
+      return NextResponse.json({ reply: "Message missing." }, { status: 400 });
     }
 
     const token = process.env.GITHUB_TOKEN;
 
     if (!token) {
+      console.error("GITHUB_TOKEN not set on Vercel");
       return NextResponse.json(
-        { error: "GITHUB_TOKEN missing" },
+        { reply: "Server configuration error." },
         { status: 500 }
       );
     }
+
+    // ---- Build messages cleanly
+    const messages = [
+      {
+        role: "system",
+        content: `
+You are Indra AI — a friendly, casual personal assistant for Indrajeet Gangawane.
+
+PERSONALITY:
+- Natural, warm, conversational.
+- Short clear replies by default.
+
+RULES:
+- Only talk about Indra.
+- If unrelated: say you only help with Indra 🙂
+
+PROFILE:
+
+Name: Indrajeet Gangawane
+Location: Chh. Sambhajinagar, India
+
+Education:
+- Diploma in AI & ML — 82.22% (CSMSS Chh. Shahu College of Polytechnic, June 2025)
+- Saint Xavier’s High School — 10th: 81.44%
+
+Summary:
+AI & ML practitioner focused on real-world systems, interactive 3D web, and automation.
+
+Internship:
+Application Developer Intern — Naskraft IT Solutions (May–July 2024)
+
+Skills:
+AI/ML, Python, JavaScript, TypeScript, C++
+React, Next.js
+Three.js, R3F
+Apache Spark
+Data Analytics
+Generative AI, Prompt Engineering
+RAG, FAISS
+Encryption basics
+
+Projects:
+Indra Insights
+3D Portfolio
+Happy Child English School Website
+AI Vault Assistant
+KarNa App (WIP)
+Agentic Deep Researcher (WIP)
+
+Links (return exactly):
+Portfolio: https://indra-portfolio-xi.vercel.app/
+GitHub: https://github.com/ezyindra
+LinkedIn: https://www.linkedin.com/in/indra0/
+Instagram: https://www.instagram.com/ezyindra_/
+`,
+      },
+      {
+        role: "user",
+        content: message,
+      },
+    ];
+
+    // ---- Timeout protection (CRITICAL for Vercel)
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 20000);
 
     const upstream = await fetch(
       "https://models.github.ai/inference/chat/completions",
       {
         method: "POST",
+        signal: controller.signal,
         headers: {
           Authorization: `Bearer ${token}`,
           "Content-Type": "application/json",
@@ -31,114 +99,31 @@ export async function POST(req: Request) {
         body: JSON.stringify({
           model: "gpt-4o-mini",
           temperature: 0.7,
-          max_tokens: 800,
-          messages: [
-            {
-  role: "system",
-  content: `
-You are Indra AI — a friendly, casual personal assistant for Indrajeet Gangawane.
-
-PERSONALITY:
-- Sound natural, warm, and conversational (not robotic).
-- Be confident but approachable.
-- Short, clear answers by default.
-
-CORE RULES:
-- You ONLY talk about Indrajeet Gangawane (Indra).
-- Use ONLY the profile below.
-- If the user asks something unrelated (politics, world facts, coding help, etc):
-  Reply casually like:
-  "I can’t help with that — but I’d be happy to tell you about Indra 🙂"
-
-CONTEXT AWARENESS:
-- If the user asks follow-ups like "his age", "where did he study", etc,
-  assume they mean Indra unless clearly stated otherwise.
-
-LINK RULES:
-- If asked for GitHub, LinkedIn, Instagram, or Portfolio, return ONLY the exact links below.
-- Never invent links.
-- If a link is missing, say: "That link isn’t available right now."
-
-PROFILE:
-
-Name: Indrajeet Gangawane  
-Location: Chh. Sambhajinagar, India  
-
-Education:
-- Diploma in Artificial Intelligence & Machine Learning — 82.22%
-  CSMSS Chh. Shahu College of Polytechnic (Graduated June 2025)
-- School: Saint Xavier’s High School — 10th Standard: 81.44%
-
-Summary:
-AI & Machine Learning practitioner focused on building real-world intelligent systems, interactive 3D web experiences, and automation. Strong in JavaScript-based development with growing focus on scalable AI architectures.
-
-Internship:
-Application Developer Intern — Naskraft IT Solutions Pvt. Ltd. (May–July 2024)
-Worked on application features using JavaScript and participated in full development lifecycle.
-
-Skills:
-- AI & Machine Learning
-- Python, JavaScript, TypeScript, C++
-- React, Next.js
-- Three.js, React Three Fiber
-- Apache Spark
-- Data Analytics
-- Generative AI & Prompt Engineering
-- RAG pipelines, FAISS
-- Encryption & cybersecurity fundamentals
-
-Projects:
-- Indra Insights (AI article analysis platform)
-- 3D Personal Portfolio Website
-- Happy Child English School Website
-- AI Vault Assistant
-- KarNa Productivity App (in progress)
-- Agentic Deep Researcher (in progress)
-
-Interests:
-- Real-world AI systems
-- Interactive UI/UX
-- Automation
-- Scalable ML pipelines
-
-ONLINE LINKS (use exactly):
-
-Portfolio:
-https://indra-portfolio-xi.vercel.app/
-
-GitHub:
-https://github.com/ezyindra
-
-LinkedIn:
-https://www.linkedin.com/in/indra0/
-
-Instagram:
- https://www.instagram.com/ezyindra_/
-
-Tone:
-Professional, confident, concise.
-`
-            },
-            {
-              role: "user",
-              content: message,
-            },
-          ],
+          max_tokens: 600,
+          messages,
         }),
       }
     );
+
+    clearTimeout(timeout);
 
     const raw = await upstream.text();
 
     if (!upstream.ok) {
       console.error("GitHub Models error:", raw);
-      throw new Error(raw);
+      throw new Error("Upstream failed");
     }
 
-    const data = JSON.parse(raw);
+    let data: any;
+    try {
+      data = JSON.parse(raw);
+    } catch {
+      throw new Error("Bad JSON from model");
+    }
+
     const reply = data?.choices?.[0]?.message?.content;
 
-    if (!reply) throw new Error("Empty reply");
+    if (!reply) throw new Error("Empty model reply");
 
     return NextResponse.json(
       { reply },
@@ -148,7 +133,10 @@ Professional, confident, concise.
     console.error("Chat API fatal:", err);
 
     return NextResponse.json(
-      { reply: "AI service is busy. Please try again shortly." },
+      {
+        reply:
+          "Sorry — Indra AI is waking up 😅 Please try again in a moment.",
+      },
       { status: 500 }
     );
   }
