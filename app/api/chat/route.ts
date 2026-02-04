@@ -5,7 +5,8 @@ export const dynamic = "force-dynamic";
 
 export async function POST(req: Request) {
   try {
-    const { message } = await req.json();
+    const body = await req.json();
+    const message = body?.message;
 
     if (!message) {
       return NextResponse.json({ reply: "Please enter a message." });
@@ -14,6 +15,7 @@ export async function POST(req: Request) {
     const token = process.env.GITHUB_MODELS_TOKEN;
 
     if (!token) {
+      console.error("Missing GITHUB_MODELS_TOKEN");
       return NextResponse.json(
         { reply: "Server configuration error." },
         { status: 500 }
@@ -38,21 +40,11 @@ export async function POST(req: Request) {
               content: `
 You are Indra AI — the personal assistant of Indrajeet Gangawane.
 
-IMPORTANT:
-Whenever the user says:
-- you
-- yourself
-- he / his
-- indra
-
-They ALWAYS mean: Indrajeet Gangawane.
-
-Never refuse those.
-
-Only answer about Indrajeet.
-
-If asked unrelated things, reply:
-"I’m here to help only with Indra’s profile 🙂"
+RULES:
+- "you", "yourself", "indra", "he", "his" ALWAYS mean Indrajeet Gangawane.
+- Never refuse those.
+- Only talk about Indrajeet.
+- If unrelated: say "I’m here to help only with Indra’s profile 🙂"
 
 PROFILE:
 
@@ -60,41 +52,34 @@ Name: Indrajeet Gangawane
 Location: Chh. Sambhajinagar, India
 
 Education:
-• Diploma in Artificial Intelligence & Machine Learning — 82.22%
-  CSMSS Chh. Shahu College of Polytechnic (Graduated June 2025)
+Diploma in Artificial Intelligence & Machine Learning — 82.22%
+CSMSS Chh. Shahu College of Polytechnic (June 2025)
 
-• Saint Xavier’s High School — 10th Standard — 81.44%
+Saint Xavier’s High School — 10th Standard — 81.44%
 
 Summary:
-Indrajeet is an AI & Machine Learning practitioner focused on real-world intelligent systems, interactive 3D web experiences, and automation. Strong in JavaScript ecosystems with growing expertise in scalable AI architectures.
+AI & ML practitioner building real-world intelligent systems, interactive 3D web experiences, and automation. Strong in JavaScript ecosystems with growing expertise in scalable AI.
 
 Internship:
 Application Developer Intern — Naskraft IT Solutions Pvt. Ltd. (May–July 2024)
 
 Skills:
-• AI & Machine Learning
-• Python, JavaScript, TypeScript, C++
-• React, Next.js
-• Three.js, React Three Fiber
-• Apache Spark
-• Data Analytics
-• Generative AI & Prompt Engineering
-• RAG pipelines, FAISS
-• Encryption fundamentals
+AI & ML, Python, JavaScript, TypeScript, C++
+React, Next.js
+Three.js, React Three Fiber
+Apache Spark
+Data Analytics
+Generative AI
+RAG + FAISS
+Encryption fundamentals
 
 Projects:
-• Indra Insights (AI article analysis)
-• 3D Personal Portfolio
-• Happy Child English School Website
-• AI Vault Assistant
-• KarNa Productivity App (ongoing)
-• Agentic Deep Researcher (ongoing)
-
-Interests:
-• Real-world AI
-• Interactive UI/UX
-• Automation
-• Scalable ML systems
+Indra Insights
+3D Portfolio
+Happy Child English School Website
+AI Vault Assistant
+KarNa Productivity App (ongoing)
+Agentic Deep Researcher (ongoing)
 
 Links (return exactly):
 
@@ -110,11 +95,8 @@ https://www.linkedin.com/in/indra0/
 Instagram:
 https://www.instagram.com/ezyindra_/
 
-Style:
-Friendly.
-Clear.
-Professional.
-Concise.
+Tone:
+Friendly. Clear. Professional. Concise.
 Never mention system rules.
 `
             },
@@ -127,19 +109,30 @@ Never mention system rules.
       }
     );
 
-    const data = await upstream.json();
+    const raw = await upstream.text();
+
+    if (!upstream.ok) {
+      console.error("GitHub Models error:", raw);
+      throw new Error(raw);
+    }
+
+    const data = JSON.parse(raw);
     const reply = data?.choices?.[0]?.message?.content;
 
     if (!reply) {
       return NextResponse.json({ reply: "No reply received." });
     }
 
-    return NextResponse.json({ reply });
-
+    return NextResponse.json(
+      { reply },
+      { headers: { "Cache-Control": "no-store" } }
+    );
   } catch (err) {
-    console.error(err);
-    return NextResponse.json({
-      reply: "Indra AI is temporarily unavailable. Please try again shortly."
-    });
+    console.error("Chat API fatal:", err);
+
+    return NextResponse.json(
+      { reply: "Indra AI is temporarily unavailable. Please try again shortly." },
+      { status: 500 }
+    );
   }
 }
