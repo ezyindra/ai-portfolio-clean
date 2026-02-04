@@ -1,13 +1,13 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 type ChatMessage = {
   role: "user" | "ai";
   text: string;
 };
 
-// Call your Next.js Route Handler instead of local Python
+// Use Next.js API route (Vercel compatible)
 const API_URL = "/api/chat";
 
 export const AIChat = () => {
@@ -15,8 +15,16 @@ export const AIChat = () => {
   const [chat, setChat] = useState<ChatMessage[]>([]);
   const [typing, setTyping] = useState(false);
 
+  const bottomRef = useRef<HTMLDivElement>(null);
+
+  // Auto scroll
+  useEffect(() => {
+    bottomRef.current?.scrollIntoView({ behavior: "smooth" });
+  }, [chat, typing]);
+
   const typeText = async (text: string) => {
     let current = "";
+
     for (let char of text) {
       current += char;
       setChat((prev) => [
@@ -25,13 +33,14 @@ export const AIChat = () => {
       ]);
       await new Promise((r) => setTimeout(r, 12));
     }
+
     setTyping(false);
   };
 
   const sendMessage = async () => {
     if (!message.trim() || typing) return;
 
-    const userMessage = message;
+    const userMessage = message.trim();
     setMessage("");
 
     setChat((prev) => [...prev, { role: "user", text: userMessage }]);
@@ -46,13 +55,20 @@ export const AIChat = () => {
 
       const data = await res.json();
 
+      if (!res.ok || !data?.reply) {
+        throw new Error("Bad response");
+      }
+
       setChat((prev) => [...prev, { role: "ai", text: "" }]);
-      typeText(data.reply);
+      await typeText(data.reply);
     } catch {
       setTyping(false);
       setChat((prev) => [
         ...prev,
-        { role: "ai", text: "⚠️ AI service is busy. Please try again shortly." },
+        {
+          role: "ai",
+          text: "⚠️ Indra AI is temporarily unavailable. Please try again in a moment.",
+        },
       ]);
     }
   };
@@ -82,6 +98,8 @@ export const AIChat = () => {
             Indra AI is typing...
           </div>
         )}
+
+        <div ref={bottomRef} />
       </div>
 
       <div className="flex gap-2">
@@ -89,13 +107,14 @@ export const AIChat = () => {
           className="flex-1 bg-gray-900 border border-purple-500/40 rounded-lg px-4 py-2 text-white outline-none focus:border-purple-400"
           placeholder="Ask me anything about Indra..."
           value={message}
+          disabled={typing}
           onChange={(e) => setMessage(e.target.value)}
           onKeyDown={(e) => e.key === "Enter" && sendMessage()}
         />
 
         <button
           onClick={sendMessage}
-          disabled={typing}
+          disabled={typing || !message.trim()}
           className="bg-purple-600 hover:bg-purple-700 px-6 py-2 rounded-lg text-white font-medium transition disabled:opacity-50"
         >
           Send
