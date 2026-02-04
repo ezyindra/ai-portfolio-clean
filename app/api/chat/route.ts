@@ -5,8 +5,7 @@ export const dynamic = "force-dynamic";
 
 export async function POST(req: Request) {
   try {
-    const body = await req.json();
-    const message = body?.message;
+    const { message } = await req.json();
 
     if (!message) {
       return NextResponse.json({ reply: "Please enter a message." });
@@ -14,42 +13,31 @@ export async function POST(req: Request) {
 
     const token = process.env.GITHUB_MODELS_TOKEN;
 
-    // HARD DEBUG
     if (!token) {
-      console.error("TOKEN MISSING");
       return NextResponse.json(
         { reply: "Server configuration error." },
         { status: 500 }
       );
     }
 
-    const res = await fetch(
+    const response = await fetch(
       "https://models.github.ai/inference/chat/completions",
       {
         method: "POST",
         headers: {
           Authorization: `Bearer ${token}`,
           "Content-Type": "application/json",
+          "X-GitHub-Api-Version": "2022-11-28"
         },
         body: JSON.stringify({
-          model: "gpt-4o-mini",
-          temperature: 0.4,
-          max_tokens: 600,
+          model: "openai/gpt-4o-mini",
           messages: [
             {
               role: "system",
               content: `
 You are Indra AI — personal assistant for Indrajeet Gangawane.
 
-RULE:
-Whenever user says you / yourself / he / indra — they mean Indrajeet.
-
-Never refuse those.
-
-Only answer about Indrajeet.
-
-If unrelated:
-"I'm here only for Indra 🙂"
+Always answer ONLY about Indrajeet.
 
 PROFILE:
 
@@ -63,13 +51,13 @@ CSMSS Chh. Shahu College of Polytechnic (2025)
 Saint Xavier’s High School — 81.44%
 
 Summary:
-AI & ML practitioner focused on real-world systems, 3D web, automation.
+AI & ML practitioner focused on real-world intelligent systems, 3D web experiences, and automation.
 
 Internship:
 Application Developer Intern — Naskraft IT (May–July 2024)
 
 Skills:
-Python, JS, TS, C++
+Python, JavaScript, TypeScript, C++
 React, Next.js
 Three.js
 Apache Spark
@@ -86,33 +74,29 @@ Agentic Researcher
 
 Links:
 
-Portfolio:
-https://indra-portfolio-xi.vercel.app/
-
-GitHub:
-https://github.com/ezyindra
-
-LinkedIn:
-https://www.linkedin.com/in/indra0/
-
-Instagram:
-https://www.instagram.com/ezyindra_/
+Portfolio https://indra-portfolio-xi.vercel.app/
+GitHub https://github.com/ezyindra
+LinkedIn https://www.linkedin.com/in/indra0/
+Instagram https://www.instagram.com/ezyindra_/
 
 Tone:
-Friendly.
-Short.
-Professional.
+Friendly. Clean. Short.
 `
             },
-            { role: "user", content: message },
+            {
+              role: "user",
+              content: message
+            }
           ],
-        }),
+          temperature: 0.4,
+          max_tokens: 600
+        })
       }
     );
 
-    const raw = await res.text();
+    const raw = await response.text();
 
-    if (!res.ok) {
+    if (!response.ok) {
       console.error(raw);
       throw new Error(raw);
     }
@@ -120,12 +104,12 @@ Professional.
     const data = JSON.parse(raw);
     const reply = data?.choices?.[0]?.message?.content;
 
-    if (!reply) return NextResponse.json({ reply: "No reply received." });
+    return NextResponse.json({
+      reply: reply || "No reply received."
+    });
 
-    return NextResponse.json({ reply });
-
-  } catch (e) {
-    console.error("API FAIL:", e);
+  } catch (err) {
+    console.error("CHAT FAIL:", err);
     return NextResponse.json({
       reply: "Indra AI temporarily unavailable."
     });
