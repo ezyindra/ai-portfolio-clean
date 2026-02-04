@@ -11,7 +11,7 @@ export async function POST(req: Request) {
       return NextResponse.json({ reply: "Please enter a message." });
     }
 
-    const token = process.env.GITHUB_TOKEN;
+    const token = process.env.GITHUB_MODELS_TOKEN;
 
     if (!token) {
       return NextResponse.json(
