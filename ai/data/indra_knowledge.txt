@@ -1,0 +1,145 @@
+NAME
+Indrajeet Gangawane
+Location: Chh. Sambhajinagar, India
+Phone: +91 7020242878
+Email: indrajeetgangawane08@gmail.com
+
+PROFESSIONAL SUMMARY
+AI & Machine Learning practitioner with hands-on experience building real-world, interactive systems that blend intelligent models with modern web technologies, including 3D experiences and automation. Proficient in Data Structures & Algorithms using C++, with growing focus on scalable system design and intelligent architectures. Passionate about transforming ideas into impactful solutions through continuous learning and practical experimentation. Brings leadership, discipline, and strategic thinking from team sports, along with creativity through music.
+
+EDUCATION
+Diploma of Education in Artificial Intelligence and Machine Learning
+CSMSS Chh. Shahu College of Polytechnic, Chh. Sambhajinagar, India
+Graduated: June 2025
+Aggregate: 82.22%
+Relevant Coursework:
+- Data Structures & Algorithms
+- Database Systems
+- Web Development
+- Machine Learning
+
+WORK EXPERIENCE
+Application Developer Intern
+Naskraft IT Solutions Pvt. Ltd. (Application Development Start-up)
+Chh. Sambhajinagar, India | May 2024 – Jul 2024
+
+- Completed a 12-week internship contributing to the Creed Play application.
+- Built and enhanced features using JavaScript in NetBeans.
+- Worked across the full development lifecycle: requirement analysis, coding, debugging, and testing.
+- Strengthened JavaScript proficiency, problem-solving skills, and collaborative development practices in a professional IT environment.
+
+PROJECTS
+
+Project 1:
+Name: Indra Insights – AI-Powered Article Analysis Platform
+Tech Stack: React, TypeScript, Vite, Tailwind CSS, Supabase (PostgreSQL, Auth, Edge Functions), Recharts
+Live: https://indra-insights.vercel.app/
+Key Outcomes:
+- Built a full-stack serverless platform to scrape and analyze articles with automated pipelines.
+- Implemented Supabase Edge Functions for content extraction and AI-driven analysis.
+- Developed interactive dashboards to visualize credibility, bias, and emotional insights.
+- Integrated Supabase Auth and PostgreSQL for secure access and historical data storage.
+
+Project 2:
+Name: Happy Child English School – School Website
+Tech Stack: HTML, CSS, JavaScript, PHP, MySQL
+Live: https://happychildenglishschool.in/
+Key Outcomes:
+- Developed a responsive school website with admissions, gallery, announcements, and contact modules.
+- Implemented backend form handling with MySQL for student enquiry data storage.
+- Built admin-manageable content sections and optimized UI for cross-device accessibility.
+
+Project 3:
+Name: 3D Personal Portfolio Website
+Tech Stack: Next.js, React, TypeScript, Three.js, React Three Fiber, Tailwind CSS, Framer Motion
+Live: https://indra-portfolio-xi.vercel.app/
+Key Outcomes:
+- Built a high-performance desktop-first 3D portfolio with immersive WebGL graphics and interactive animations.
+- Implemented Three.js with React Three Fiber for real-time 3D scenes and camera controls.
+- Used Framer Motion for smooth UI transitions and Tailwind CSS for responsive layout styling.
+- Structured the app with Next.js for routing and optimized asset loading for complex visual components.
+- Applied performance optimizations such as lazy loading 3D assets, component-level code splitting, and GPU-friendly rendering.
+
+CURRENT WORKING PROJECTS
+
+Project 4 (In Progress):
+Name: KarNa – Desktop Productivity & Writing Application
+Tech Stack: React, TypeScript, Vite, Tailwind CSS, Framer Motion
+Key Work:
+- Building a desktop-first productivity application with distraction-free writing, Kanban goals, and custom dashboard UI.
+- Developed modular React components for editor, task boards, and navigation with TypeScript-based state handling.
+- Implemented animated layouts and transitions using Framer Motion with Tailwind-driven responsive design.
+- Designed dual-theme UI (Light/Dark) and frameless window layout for native-app experience.
+- Preparing integration of local storage (SQLite) and desktop wrapper (Electron/Tauri) for offline-first deployment.
+
+Project 5 (In Progress):
+Name: Agentic Deep Researcher – Autonomous AI Research System
+Tech Stack: Python, LangChain, LangGraph, OpenAI API, FAISS, Tavily API, BeautifulSoup
+Key Work:
+- Building an agentic AI system that autonomously plans, searches, scrapes, embeds, and synthesizes web research.
+- Implemented multi-agent workflows using LangGraph with tool routing and state-based execution.
+- Integrated Tavily search and BeautifulSoup scraping with FAISS vector storage for semantic retrieval.
+- Designed RAG pipeline to generate structured, citation-aware research reports.
+- Orchestrated Planner → Researcher → Synthesizer agents for automated end-to-end knowledge generation.
+
+TECHNICAL SKILLS
+
+Programming & Core:
+- C++
+- JavaScript
+- TypeScript
+- Python
+
+Web Development:
+- React
+- Next.js
+- HTML
+- CSS
+- PHP
+- MySQL
+
+AI / ML & Data:
+- Machine Learning
+- Generative AI
+- Prompt Engineering
+- RAG Pipelines
+- FAISS Vector Databases
+- Data Analytics
+
+UI / UX & Graphics:
+- Tailwind CSS
+- Framer Motion
+- Three.js
+- React Three Fiber
+- Web Design & UI Thinking
+
+Other Skills:
+- Problem Solving & Debugging
+- Team Collaboration
+- Creative & Technical (Acoustic Guitar, AI-Assisted Video Editing)
+
+CERTIFICATIONS AND CREDENTIALS
+- Introduction to Prompt Engineering with GitHub Copilot — Microsoft & Simplilearn SkillUp (2025): Prompt Engineering, AI Assistant Development, GitHub Copilot
+- Gemini Certified Educator — Google for Education (Issued Jan 2026): Generative AI with Gemini, AI in Education, Responsible AI Integration
+- Data Analytics Job Simulation — Deloitte via Forage (2025): Real-World Data Analysis, Forensic Technology, Business Insights
+- Introduction to Generative AI — Google Cloud & Simplilearn SkillUp (2025): Generative AI, LLM Fundamentals, Core AI Concepts
+
+AREAS OF INTEREST
+- Building real-world AI systems
+- Interactive 3D web experiences
+- Automation
+- Scalable intelligent architectures
+
+CONTACT & LINKS
+Email: indrajeetgangawane08@gmail.com
+
+
+SCHOOL EDUCATION
+Saint Xavier’s High School
+10th Standard Percentage: 81.44%
+
+ONLINE PROFILES
+GitHub: https://github.com/ezyindra
+LinkedIn: https://www.linkedin.com/in/indra0/
+Instagram: https://www.instagram.com/ezyindra_/
+Portfolio: https://indra-portfolio-xi.vercel.app/
