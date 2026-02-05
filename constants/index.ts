@@ -11,6 +11,14 @@ import {
 
 export const CERTIFICATIONS = [
   {
+    title: "Gemini Certified Educator",
+    issuer: "Google for Education",
+    skills: "Generative AI · Gemini · AI in Education · Prompting",
+    year: "2026",
+    image: "/certificates/gemini educator.png",
+    file: "/certificates/gemini educator.pdf",
+  },
+  {
     title: "Introduction to Prompt Engineering with GitHub Copilot",
     issuer: "Microsoft · Simplilearn SkillUp",
     skills: "Prompt Engineering · AI-assisted Development · GitHub Copilot",
@@ -51,6 +59,7 @@ export const CERTIFICATIONS = [
     file: "/certificates/Introduction_to_Data_Science_certificate_indrajeetgangawane08-gmail-com_849dc119-8d43-436c-bb6a-b920b03c55a8.pdf",
   },
 ] as const;
+
 
 /* ================= SKILLS ================= */
 
@@ -126,30 +135,34 @@ export const OTHER_SKILL = [
 
 export const PROJECTS = [
   {
-    title: "Modern Next.js 14 Portfolio",
+    title: "Happy Child English School — Official Website",
     description:
-      'Embark on a journey through my professional evolution with the "Modern Next.js Portfolio".',
-    image: "/projects/project-1.png",
-    live: "https://example.com",
+      "Sponsored diploma group project: a fully responsive school website designed for students and parents. Built with HTML, CSS, and JavaScript, featuring clean UI, mobile-first layout, and clear presentation of academics, admissions, and contact details. Demonstrates real client delivery, teamwork, and production-ready frontend development.",
+    image: "/projects/schoolproject.png",
+    live: "https://happychildenglishschool.in/",
     github: "",
+    tech: ["HTML", "CSS", "JavaScript"],
   },
   {
     title: "Indra-Insights — AI News Credibility Platform",
     description:
-      "3D AI-powered platform that verifies news credibility using NLP and trust scoring.",
+      "AI-powered platform that analyzes articles for credibility using NLP, trust scoring, and intelligent summarization. Built to explore real-world applications of Generative AI and data analytics.",
     image: "/projects/indra-insights.png",
     live: "https://indra-insights.vercel.app/",
-    github: "https://github.com/ezyindra/indra-insights.git",
+    github: "",
+    tech: ["Next.js", "TypeScript", "AI/NLP", "Data Analytics"],
   },
   {
     title: "3D AI Portfolio Website",
     description:
-      "High-performance 3D portfolio built with Next.js 14, Three.js, and Framer Motion.",
+      "High-performance futuristic portfolio featuring interactive 3D elements, smooth animations, and an integrated AI assistant. Built with Next.js 14, Three.js, React Three Fiber, and Framer Motion.",
     image: "/projects/ai-portfolio.png",
-    live: "",
-    github: "https://github.com/ezyindra/ai-portfolio.git",
+    live: "https://ai-portfolio-clean-indra.vercel.app/",
+    github: "",
+    tech: ["Next.js 14", "Three.js", "React Three Fiber", "Framer Motion"],
   },
 ] as const;
+
 
 /* ================= FOOTER ================= */
 
@@ -178,6 +191,7 @@ export const NAV_LINKS = [
   { title: "Home", link: "#home" },
   { title: "Skills", link: "#skills" },
   { title: "Projects", link: "#projects" },
+  { title: "Experience", link: "#experience" },
   { title: "Certifications", link: "#certifications" },
   { title: "About me", link: "#about-me" },
   { title: "Contact", link: "#contact" },

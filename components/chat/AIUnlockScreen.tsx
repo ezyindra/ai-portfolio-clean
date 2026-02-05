@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
 import { AIChat } from "./AIChat";
 
@@ -15,41 +15,41 @@ export const AIUnlockScreen = () => {
   const [questions, setQuestions] = useState<MCQ[]>([]);
   const [answers, setAnswers] = useState<number[]>([]);
   const [unlocked, setUnlocked] = useState(false);
+  const [showWelcome, setShowWelcome] = useState(false);
   const [error, setError] = useState("");
 
   // Initial decrypt animation
   useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 2000);
-    return () => clearTimeout(timer);
+    const t = setTimeout(() => setLoading(false), 1800);
+    return () => clearTimeout(t);
   }, []);
 
-  // Fetch MCQs once decrypt finishes
+  // Load MCQs
   useEffect(() => {
     if (loading) return;
 
     fetch("/api/encryption-quiz", { cache: "no-store" })
-      .then((res) => res.json())
-      .then((data) => {
-        setQuestions(data.questions || []);
-      })
+      .then((r) => r.json())
+      .then((d) => setQuestions(d.questions || []))
       .catch(() => setError("Failed to load verification questions."));
   }, [loading]);
 
-  const selectAnswer = (qIndex: number, optIndex: number) => {
+  const selectAnswer = (q: number, o: number) => {
     const next = [...answers];
-    next[qIndex] = optIndex;
+    next[q] = o;
     setAnswers(next);
   };
 
   const verify = () => {
     let score = 0;
-
-    questions.forEach((q, i) => {
-      if (answers[i] === q.correctIndex) score++;
-    });
+    questions.forEach((q, i) => answers[i] === q.correctIndex && score++);
 
     if (score >= 2) {
       setUnlocked(true);
+      setShowWelcome(true);
+
+      // show welcome for 2.5s, then chat
+      setTimeout(() => setShowWelcome(false), 2500);
     } else {
       setError("Verification failed. Try again.");
       setAnswers([]);
@@ -60,48 +60,54 @@ export const AIUnlockScreen = () => {
   if (loading) {
     return (
       <motion.div
-        className="fixed inset-0 z-50 flex items-center justify-center bg-black text-purple-400 text-3xl font-semibold"
+        className="fixed inset-0 z-50 flex items-center justify-center bg-black text-cyan-400 text-3xl font-semibold tracking-wide"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
       >
-        🔓 Decrypting Indra AI Vault...
+        🔐 Decrypting Indra Vault…
       </motion.div>
     );
   }
 
-  // Chat unlocked
+  // Post-unlock welcome animation
+  if (unlocked && showWelcome) {
+    return (
+      <motion.div className="fixed inset-0 z-50 flex items-center justify-center bg-black">
+        <motion.div
+          initial={{ scale: 0.6, opacity: 0, filter: "blur(12px)" }}
+          animate={{ scale: 1, opacity: 1, filter: "blur(0px)" }}
+          transition={{ duration: 0.8 }}
+          className="text-center"
+        >
+          <h1 className="text-5xl font-bold bg-gradient-to-r from-cyan-400 via-fuchsia-500 to-indigo-400 bg-clip-text text-transparent">
+            Welcome to Indra AI
+          </h1>
+
+          <p className="mt-4 text-white/70">
+            Your personal assistant — explore Indra’s world.
+          </p>
+        </motion.div>
+      </motion.div>
+    );
+  }
+
+  // Chat
   if (unlocked) {
     return (
       <motion.div
-        className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-black/90"
+        className="fixed inset-0 z-50 flex items-center justify-center bg-black/90"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
       >
-        <motion.h1
-          className="text-4xl mb-4 text-purple-400"
-          initial={{ y: -30 }}
-          animate={{ y: 0 }}
-        >
-          Welcome to Indra AI
-        </motion.h1>
-
-        <p className="text-white/70 mb-8">
-          Your personal assistant. Ask me anything about Indra.
-        </p>
-
         <AIChat />
       </motion.div>
     );
   }
 
-  // Quiz screen
+  // Quiz
   return (
-    <motion.div
-      className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-black/90 px-6"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-    >
-      <h2 className="text-3xl text-purple-400 mb-6">
+    <motion.div className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-black px-6">
+      <h2 className="text-3xl mb-6 bg-gradient-to-r from-cyan-400 to-fuchsia-500 bg-clip-text text-transparent">
         Vault Verification
       </h2>
 
@@ -113,9 +119,9 @@ export const AIUnlockScreen = () => {
             <button
               key={oi}
               onClick={() => selectAnswer(qi, oi)}
-              className={`block w-full text-left px-4 py-2 mb-2 rounded border ${
+              className={`block w-full px-4 py-2 mb-2 rounded border transition ${
                 answers[qi] === oi
-                  ? "border-purple-400 text-purple-300"
+                  ? "border-cyan-400 text-cyan-300"
                   : "border-white/20 text-white/70"
               }`}
             >
@@ -129,7 +135,7 @@ export const AIUnlockScreen = () => {
 
       <button
         onClick={verify}
-        className="mt-4 px-6 py-2 rounded bg-purple-500 text-black font-semibold"
+        className="mt-4 px-8 py-2 rounded-xl bg-gradient-to-r from-cyan-400 to-fuchsia-500 text-black font-semibold"
       >
         Unlock Vault
       </button>

@@ -5,7 +5,6 @@ import type { PropsWithChildren } from "react";
 import { Footer } from "@/components/main/footer";
 import { Navbar } from "@/components/main/navbar";
 import ClientProviders from "@/components/utils/ClientProviders";
-import { siteConfig } from "@/config";
 import { cn } from "@/lib/utils";
 
 import "./globals.css";
@@ -16,7 +15,11 @@ export const viewport: Viewport = {
   themeColor: "#030014",
 };
 
-export const metadata: Metadata = siteConfig;
+export const metadata: Metadata = {
+  title: "ezyindra | Space Portfolio",
+  description: "Welcome to my full stack Next.js 14 space portfolio.",
+  
+};
 
 export default function RootLayout({ children }: PropsWithChildren) {
   return (

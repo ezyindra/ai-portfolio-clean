@@ -3,6 +3,11 @@ import type { Metadata } from "next";
 export const siteConfig: Metadata = {
   title: "ezyindra | Space Portfolio",
   description: "Welcome to my full stack Next.js 14 space portfolio.",
+
+  icons: {
+    icon: "/newlogo.ico", // 👈 your new tab logo
+  },
+
   keywords: [
     "reactjs",
     "nextjs",
@@ -33,9 +38,10 @@ export const siteConfig: Metadata = {
     "eslint",
     "html",
     "css",
-  ] as Array<string>,
+  ],
+
   authors: {
     name: "Indrajeet Gangawane",
     url: "https://github.com/ezyindra",
   },
-} as const;
+};

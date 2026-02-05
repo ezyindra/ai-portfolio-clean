@@ -41,8 +41,8 @@ export const Navbar = () => {
         </button>
 
         {/* Web Navbar */}
-        <div className="hidden md:flex w-[640px] h-full items-center md:mr-20">
-          <div className="flex items-center gap-8 w-full border border-[rgba(112,66,248,0.38)] bg-[rgba(3,0,20,0.37)] px-[28px] py-[10px] rounded-full text-gray-200">
+        <div className="hidden md:flex h-full items-center justify-center flex-1">
+          <div className="flex items-center gap-8 border border-[rgba(112,66,248,0.38)] bg-[rgba(3,0,20,0.37)] px-[28px] py-[10px] rounded-full text-gray-200">
             {NAV_LINKS.map((link) => (
               <button
                 key={link.title}
