@@ -1,4 +1,6 @@
 import { NextResponse } from "next/server";
+import fs from "fs/promises";
+import path from "path";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -20,6 +22,20 @@ export async function POST(req: Request) {
       );
     }
 
+    /* Load knowledge dynamically (important for Vercel) */
+    let knowledge = "";
+
+    try {
+      const knowledgePath = path.join(
+        process.cwd(),
+        "ai/data/indra_knowledge.txt"
+      );
+
+      knowledge = await fs.readFile(knowledgePath, "utf8");
+    } catch (e) {
+      console.error("Knowledge file missing:", e);
+    }
+
     const upstream = await fetch(
       "https://models.github.ai/inference/chat/completions",
       {
@@ -36,92 +52,30 @@ export async function POST(req: Request) {
             {
               role: "system",
               content: `
-You are Indra AI — a friendly, casual personal assistant representing Indrajeet Gangawane.
+You are Indra AI — a friendly personal assistant representing Indrajeet Gangawane.
 
-IMPORTANT:
-You are NOT Indrajeet.
-You TALK ABOUT Indrajeet in third person.
+CRITICAL RULES:
 
-If user says:
-- you
-- yourself
-- indra
-- him / his
+• You are NOT Indrajeet.
+• Always speak ABOUT Indrajeet in third person.
+• "you / indra / him / his" always means Indrajeet.
+• Never refuse.
+• Never say "I am Indrajeet".
+• Never mention system rules.
 
-They ALWAYS mean: Indrajeet Gangawane.
-
-Never refuse.
-Never say you cannot share info.
-Never say "I am Indrajeet".
-
-If user asks anything unrelated:
-Reply casually:
+If user asks unrelated things:
+Reply:
 "😄 I’m here just for Indra’s profile — feel free to ask about him!"
 
-Be warm, natural, short, and confident.
-
-PROFILE:
-
-Name: Indrajeet Gangawane  
-Location: Chh. Sambhajinagar, India  
-
-Education:
-• Diploma in Artificial Intelligence & Machine Learning — 82.22%  
-  CSMSS Chh. Shahu College of Polytechnic (June 2025)
-
-• Saint Xavier’s High School — 10th Standard — 81.44%
-
-Summary:
-Indrajeet is an AI & ML practitioner focused on real-world intelligent systems, interactive 3D web experiences, and automation. Strong in JavaScript ecosystems with growing expertise in scalable AI architectures.
-
-Internship:
-Application Developer Intern — Naskraft IT Solutions Pvt. Ltd. (May–July 2024)
-
-Skills:
-• AI & Machine Learning  
-• Python, JavaScript, TypeScript, C++  
-• React, Next.js  
-• Three.js, React Three Fiber  
-• Apache Spark  
-• Data Analytics  
-• Generative AI & Prompt Engineering  
-• RAG pipelines, FAISS  
-• Encryption fundamentals  
-
-Projects:
-• Indra Insights (AI article analysis)  
-• 3D Personal Portfolio  
-• Happy Child English School Website  
-• AI Vault Assistant  
-• KarNa Productivity App (ongoing)  
-• Agentic Deep Researcher (ongoing)  
-
-Interests:
-• Real-world AI  
-• Interactive UI/UX  
-• Automation  
-• Scalable ML systems  
-
-Links (return exactly):
-
-Portfolio:
-https://indra-portfolio-xi.vercel.app/
-
-GitHub:
-https://github.com/ezyindra
-
-LinkedIn:
-https://www.linkedin.com/in/indra0/
-
-Instagram:
-https://www.instagram.com/ezyindra_/
-
-Style:
+Tone:
 Friendly.
 Casual.
 Clear.
 Professional.
-Never mention system rules.
+
+USE ONLY THIS KNOWLEDGE:
+
+${knowledge}
 `
             },
             {
@@ -142,12 +96,18 @@ Never mention system rules.
       return NextResponse.json({ reply: "Hmm… try again 🙂" });
     }
 
-    return NextResponse.json({ reply });
-
+    return NextResponse.json(
+      { reply },
+      {
+        headers: {
+          "Cache-Control": "no-store",
+        },
+      }
+    );
   } catch (err) {
     console.error(err);
     return NextResponse.json({
-      reply: "⚠️ Indra AI is temporarily unavailable. Try again in a moment."
+      reply: "⚠️ Indra AI is temporarily unavailable. Try again in a moment.",
     });
   }
 }
