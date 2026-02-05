@@ -8,10 +8,7 @@ type Props = {
 };
 
 const CURRENT_PROJECTS = [
-    {
-        title: "KarNa Productivity App",
-        desc: "AI-powered productivity system integrating task automation and intelligent reminders. A collabration project with my friend",
-    },
+   
     {
         title: "Agentic Deep Researcher",
         desc: "Autonomous research agent using RAG pipelines, FAISS, and multi-step reasoning.",
