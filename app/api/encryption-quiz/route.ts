@@ -1,82 +1,103 @@
 import { NextResponse } from "next/server";
 
-export const runtime = "edge";
+export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
-export async function POST(req: Request) {
+export async function GET() {
   try {
-    const { message } = await req.json();
-
-    console.log("Incoming message:", message);
-
-    if (!message) {
-      return NextResponse.json({ error: "Missing message" }, { status: 400 });
-    }
-
-    const token = process.env.GITHUB_TOKEN;
+    const token = process.env.OPENROUTER_API_KEY;
 
     if (!token) {
-      console.error("GITHUB_TOKEN missing");
-      return NextResponse.json(
-        { error: "GITHUB_TOKEN missing" },
-        { status: 500 }
-      );
+      return NextResponse.json({ questions: [] }, { status: 500 });
     }
 
+    // Force randomness every call
+    const seed = Math.floor(Math.random() * 1000000);
+
+    const prompt = `
+Random seed: ${seed}
+
+Generate EXACTLY 3 DIFFERENT cybersecurity multiple choice questions.
+
+RULES:
+- Must be NEW every request.
+- 4 options each.
+- Exactly ONE correct answer.
+- Topics: encryption, hashing, HTTPS, authentication, networking, web security.
+- Beginner to intermediate.
+- STRICT JSON ONLY.
+- No markdown.
+- No explanations.
+
+Return format:
+
+{
+  "questions": [
+    {
+      "question": "",
+      "options": ["", "", "", ""],
+      "correctIndex": 0
+    }
+  ]
+}
+`;
+
     const upstream = await fetch(
-      "https://models.github.ai/inference/chat/completions",
+      "https://openrouter.ai/api/v1/chat/completions",
       {
         method: "POST",
         headers: {
           Authorization: `Bearer ${token}`,
           "Content-Type": "application/json",
+          "HTTP-Referer": "http://localhost",
+          "X-Title": "Indra Vault",
         },
         body: JSON.stringify({
-          model: "gpt-4o-mini",
-          temperature: 0.7,
-          max_tokens: 800,
-          messages: [
-            {
-              role: "system",
-              content:
-                "You are Indra AI, a professional assistant that answers about Indra's skills, projects, education, and experience.",
-            },
-            {
-              role: "user",
-              content: message,
-            },
-          ],
+          model: "openai/gpt-4o-mini",
+          temperature: 1.1,
+          top_p: 0.95,
+          max_tokens: 600,
+          messages: [{ role: "user", content: prompt }],
         }),
       }
     );
 
-    const raw = await upstream.text();
+    const raw = await upstream.json();
+    const content = raw?.choices?.[0]?.message?.content;
 
-    console.log("Upstream status:", upstream.status);
-    console.log("Upstream body:", raw);
+    if (!content) throw new Error("Empty response");
 
-    if (!upstream.ok) {
-      throw new Error(raw);
-    }
+    const parsed = JSON.parse(content);
 
-    const data = JSON.parse(raw);
-    const reply = data?.choices?.[0]?.message?.content;
+    return NextResponse.json(parsed, {
+      headers: {
+        "Cache-Control": "no-store, no-cache, must-revalidate",
+      },
+    });
 
-    if (!reply) throw new Error("Empty model reply");
-
-    return NextResponse.json(
-      { reply },
-      { headers: { "Cache-Control": "no-store" } }
-    );
   } catch (err) {
-    console.error("Chat API fatal:", err);
+    console.error("Quiz API error:", err);
 
     return NextResponse.json(
       {
-        reply:
-          "AI service is busy. Please try again shortly.",
+        questions: [
+          {
+            question: "What does HTTPS mainly provide?",
+            options: [
+              "Speed",
+              "Encrypted communication",
+              "Compression",
+              "SEO",
+            ],
+            correctIndex: 1,
+          },
+        ],
       },
-      { status: 500 }
+      {
+        headers: {
+          "Cache-Control": "no-store",
+        },
+      }
     );
   }
 }

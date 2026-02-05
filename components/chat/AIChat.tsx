@@ -17,8 +17,9 @@ export const AIChat = () => {
   const [typing, setTyping] = useState(false);
 
   const scrollRef = useRef<HTMLDivElement>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
 
-  // Auto scroll
+  /* Auto scroll */
   useEffect(() => {
     scrollRef.current?.scrollTo({
       top: scrollRef.current.scrollHeight,
@@ -26,13 +27,28 @@ export const AIChat = () => {
     });
   }, [chat, typing]);
 
+  /* Autofocus when opened */
+  useEffect(() => {
+    if (open) inputRef.current?.focus();
+  }, [open]);
+
   const typeText = async (text: string) => {
     let current = "";
+
+    setChat((prev) => [...prev, { role: "ai", text: "" }]);
+
     for (const char of text) {
       current += char;
-      setChat((prev) => [...prev.slice(0, -1), { role: "ai", text: current }]);
+
+      setChat((prev) => {
+        const updated = [...prev];
+        updated[updated.length - 1] = { role: "ai", text: current };
+        return updated;
+      });
+
       await new Promise((r) => setTimeout(r, 8));
     }
+
     setTyping(false);
   };
 
@@ -41,9 +57,9 @@ export const AIChat = () => {
 
     const userMessage = message;
     setMessage("");
+    setTyping(true);
 
     setChat((prev) => [...prev, { role: "user", text: userMessage }]);
-    setTyping(true);
 
     try {
       const res = await fetch(API_URL, {
@@ -54,7 +70,6 @@ export const AIChat = () => {
 
       const result = await res.json();
 
-      setChat((prev) => [...prev, { role: "ai", text: "" }]);
       await typeText(result.reply || "No reply received.");
 
     } catch {
@@ -74,7 +89,7 @@ export const AIChat = () => {
           whileHover={{ scale: 1.08 }}
           onClick={() => setOpen(true)}
           className="fixed bottom-10 right-10 z-[999]
-            bg-cyan-400 text-black px-6 py-2 rounded-full shadow-xl"
+          bg-cyan-400 text-black px-6 py-2 rounded-full shadow-xl"
         >
           Open Indra AI
         </motion.button>
@@ -90,11 +105,11 @@ export const AIChat = () => {
             drag
             dragMomentum={false}
             className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-[999]
-              w-[92vw] max-w-5xl h-[520px]
-              bg-gradient-to-br from-[#020617] via-[#050b18] to-black
-              border border-cyan-400/40 rounded-2xl p-6
-              shadow-[0_0_80px_rgba(0,255,255,.25)]
-              backdrop-blur-xl"
+            w-[92vw] max-w-5xl h-[520px]
+            bg-gradient-to-br from-[#020617] via-[#050b18] to-black
+            border border-cyan-400/40 rounded-2xl p-6
+            shadow-[0_0_80px_rgba(0,255,255,.25)]
+            backdrop-blur-xl"
           >
             {/* Glow */}
             <div className="absolute inset-0 rounded-2xl bg-cyan-400/10 blur-2xl -z-10" />
@@ -145,11 +160,12 @@ export const AIChat = () => {
             {/* Input */}
             <div className="flex gap-3">
               <input
+                ref={inputRef}
                 className="flex-1 bg-black/40 border border-cyan-400/40 rounded-lg px-4 py-2 text-white outline-none focus:border-cyan-400"
                 placeholder="Ask about Indra..."
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
-                onKeyDown={(e) => e.key === "Enter" && sendMessage()}
+                onKeyDown={(e) => e.key === "Enter" && !typing && sendMessage()}
               />
 
               <button
