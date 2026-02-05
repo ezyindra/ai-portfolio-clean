@@ -8,8 +8,9 @@ export async function GET() {
     const token = process.env.OPENROUTER_API_KEY;
 
     if (!token) {
-      return NextResponse.json({ questions: [] }, { status: 500 });
+      throw new Error("Missing OPENROUTER_API_KEY");
     }
+
 
     // Force randomness every call
     const seed = Math.floor(Math.random() * 1000000);
