@@ -1,145 +1,206 @@
-NAME
-Indrajeet Gangawane
-Location: Chh. Sambhajinagar, India
+========================
+INDRA – PERSONAL PROFILE
+========================
+
+FULL NAME
+Indrajeet Ajay Gangawane
+
+BASIC INFO
+Date of Birth: 06 February 2006
+Age: 20
+Location: Chhatrapati Sambhajinagar (Aurangabad), Maharashtra, India
 Phone: +91 7020242878
 Email: indrajeetgangawane08@gmail.com
+Backup Email: indrajeetgangawane111@gmail.com
 
+ONLINE PRESENCE
+GitHub: https://github.com/ezyindra
+LinkedIn: https://www.linkedin.com/in/indra0/
+Instagram: https://www.instagram.com/ezyindra_/
+Portfolio: https://indra-portfolio-xi.vercel.app/
+
+------------------------
 PROFESSIONAL SUMMARY
-AI & Machine Learning practitioner with hands-on experience building real-world, interactive systems that blend intelligent models with modern web technologies, including 3D experiences and automation. Proficient in Data Structures & Algorithms using C++, with growing focus on scalable system design and intelligent architectures. Passionate about transforming ideas into impactful solutions through continuous learning and practical experimentation. Brings leadership, discipline, and strategic thinking from team sports, along with creativity through music.
+------------------------
+Indrajeet is an AI & Machine Learning practitioner with hands-on experience building real-world, interactive systems that blend intelligent models with modern web technologies, including immersive 3D experiences and automation.
 
+He is proficient in Data Structures & Algorithms using C++, with a growing focus on scalable system design and intelligent architectures. Passionate about transforming ideas into impactful solutions through continuous learning and practical experimentation.
+
+He brings leadership, discipline, and strategic thinking from team sports, along with creativity through music.
+
+------------------------
 EDUCATION
-Diploma of Education in Artificial Intelligence and Machine Learning
-CSMSS Chh. Shahu College of Polytechnic, Chh. Sambhajinagar, India
-Graduated: June 2025
+------------------------
+
+Current:
+Bachelor of Technology (BTech) in Computer Science (AI & ML)
+Dr. Babasaheb Ambedkar Technological University (BATU)
+Direct Second Year (DSY) Entry
+Currently in 2nd Year
+
+Diploma:
+Diploma in Artificial Intelligence & Machine Learning  
+CSMSS Chh. Shahu College of Polytechnic, Chh. Sambhajinagar  
+Graduated: June 2025  
 Aggregate: 82.22%
+
 Relevant Coursework:
 - Data Structures & Algorithms
 - Database Systems
 - Web Development
 - Machine Learning
 
+School:
+Saint Xavier’s High School (State Board, Convent School)  
+Location: CIDCO N1, Aurangabad  
+10th Percentage: 81.44%
+
+------------------------
 WORK EXPERIENCE
-Application Developer Intern
-Naskraft IT Solutions Pvt. Ltd. (Application Development Start-up)
-Chh. Sambhajinagar, India | May 2024 – Jul 2024
+------------------------
 
-- Completed a 12-week internship contributing to the Creed Play application.
-- Built and enhanced features using JavaScript in NetBeans.
+Application Developer Intern  
+Naskraft IT Solutions Pvt. Ltd. (Application Development Start-up)  
+Chh. Sambhajinagar, India  
+May 2024 – July 2024
+
+- Completed a 12-week internship contributing to the CREED Play application.
+- Built and enhanced application features using JavaScript in NetBeans IDE.
 - Worked across the full development lifecycle: requirement analysis, coding, debugging, and testing.
-- Strengthened JavaScript proficiency, problem-solving skills, and collaborative development practices in a professional IT environment.
+- Strengthened JavaScript proficiency, problem-solving abilities, and collaborative development practices in a professional IT environment.
 
+------------------------
 PROJECTS
+------------------------
 
 Project 1:
-Name: Indra Insights – AI-Powered Article Analysis Platform
-Tech Stack: React, TypeScript, Vite, Tailwind CSS, Supabase (PostgreSQL, Auth, Edge Functions), Recharts
+Indra Insights – AI-Powered Article Analysis Platform  
 Live: https://indra-insights.vercel.app/
+
+Tech Stack:
+React, TypeScript, Vite, Tailwind CSS, Supabase (PostgreSQL, Auth, Edge Functions), Recharts
+
 Key Outcomes:
-- Built a full-stack serverless platform to scrape and analyze articles with automated pipelines.
-- Implemented Supabase Edge Functions for content extraction and AI-driven analysis.
-- Developed interactive dashboards to visualize credibility, bias, and emotional insights.
-- Integrated Supabase Auth and PostgreSQL for secure access and historical data storage.
+- Built a full-stack serverless platform to scrape and analyze articles.
+- Implemented Supabase Edge Functions for content extraction and AI analysis.
+- Developed dashboards to visualize credibility, bias, and emotional insights.
+- Integrated Supabase Auth and PostgreSQL for secure access and historical data.
+
+---
 
 Project 2:
-Name: Happy Child English School – School Website
-Tech Stack: HTML, CSS, JavaScript, PHP, MySQL
+Happy Child English School – Official Website  
 Live: https://happychildenglishschool.in/
+
+Tech Stack:
+HTML, CSS, JavaScript, PHP, MySQL
+
 Key Outcomes:
 - Developed a responsive school website with admissions, gallery, announcements, and contact modules.
-- Implemented backend form handling with MySQL for student enquiry data storage.
+- Implemented backend form handling with MySQL for student enquiry storage.
 - Built admin-manageable content sections and optimized UI for cross-device accessibility.
 
-Project 3:
-Name: 3D Personal Portfolio Website
-Tech Stack: Next.js, React, TypeScript, Three.js, React Three Fiber, Tailwind CSS, Framer Motion
-Live: https://indra-portfolio-xi.vercel.app/
-Key Outcomes:
-- Built a high-performance desktop-first 3D portfolio with immersive WebGL graphics and interactive animations.
-- Implemented Three.js with React Three Fiber for real-time 3D scenes and camera controls.
-- Used Framer Motion for smooth UI transitions and Tailwind CSS for responsive layout styling.
-- Structured the app with Next.js for routing and optimized asset loading for complex visual components.
-- Applied performance optimizations such as lazy loading 3D assets, component-level code splitting, and GPU-friendly rendering.
+---
 
+Project 3:
+3D Personal Portfolio Website  
+Live: https://indra-portfolio-xi.vercel.app/
+
+Tech Stack:
+Next.js, React, TypeScript, Three.js, React Three Fiber, Tailwind CSS, Framer Motion
+
+Key Outcomes:
+- Built a high-performance 3D portfolio with immersive WebGL graphics.
+- Implemented real-time 3D scenes with React Three Fiber.
+- Used Framer Motion for smooth animations.
+- Applied performance optimizations such as lazy loading, code splitting, and GPU-friendly rendering.
+
+------------------------
 CURRENT WORKING PROJECTS
+------------------------
 
 Project 4 (In Progress):
-Name: KarNa – Desktop Productivity & Writing Application
-Tech Stack: React, TypeScript, Vite, Tailwind CSS, Framer Motion
+KarNa – Desktop Productivity & Writing Application
+
+Tech Stack:
+React, TypeScript, Vite, Tailwind CSS, Framer Motion
+
 Key Work:
-- Building a desktop-first productivity application with distraction-free writing, Kanban goals, and custom dashboard UI.
-- Developed modular React components for editor, task boards, and navigation with TypeScript-based state handling.
-- Implemented animated layouts and transitions using Framer Motion with Tailwind-driven responsive design.
-- Designed dual-theme UI (Light/Dark) and frameless window layout for native-app experience.
-- Preparing integration of local storage (SQLite) and desktop wrapper (Electron/Tauri) for offline-first deployment.
+- Building distraction-free writing and Kanban goal systems.
+- Modular React components with TypeScript state handling.
+- Animated layouts using Framer Motion.
+- Dual light/dark themes and frameless window UI.
+- Preparing SQLite + Electron/Tauri integration for offline-first desktop deployment.
+
+---
 
 Project 5 (In Progress):
-Name: Agentic Deep Researcher – Autonomous AI Research System
-Tech Stack: Python, LangChain, LangGraph, OpenAI API, FAISS, Tavily API, BeautifulSoup
+Agentic Deep Researcher – Autonomous AI Research System
+
+Tech Stack:
+Python, LangChain, LangGraph, OpenAI API, FAISS, Tavily API, BeautifulSoup
+
 Key Work:
-- Building an agentic AI system that autonomously plans, searches, scrapes, embeds, and synthesizes web research.
-- Implemented multi-agent workflows using LangGraph with tool routing and state-based execution.
-- Integrated Tavily search and BeautifulSoup scraping with FAISS vector storage for semantic retrieval.
-- Designed RAG pipeline to generate structured, citation-aware research reports.
-- Orchestrated Planner → Researcher → Synthesizer agents for automated end-to-end knowledge generation.
+- Building agentic AI pipelines for autonomous research.
+- Multi-agent workflows with LangGraph.
+- Integrated Tavily search and BeautifulSoup scraping.
+- FAISS vector storage for semantic retrieval.
+- RAG pipeline for citation-aware research reports.
 
+------------------------
 TECHNICAL SKILLS
+------------------------
 
-Programming & Core:
-- C++
-- JavaScript
-- TypeScript
-- Python
+Programming:
+C++, JavaScript, TypeScript, Python
 
 Web Development:
-- React
-- Next.js
-- HTML
-- CSS
-- PHP
-- MySQL
+React, Next.js, HTML, CSS, PHP, MySQL
 
-AI / ML & Data:
-- Machine Learning
-- Generative AI
-- Prompt Engineering
-- RAG Pipelines
-- FAISS Vector Databases
-- Data Analytics
+AI / ML:
+Machine Learning, Generative AI, Prompt Engineering, RAG Pipelines, FAISS, Data Analytics
 
-UI / UX & Graphics:
-- Tailwind CSS
-- Framer Motion
-- Three.js
-- React Three Fiber
-- Web Design & UI Thinking
+UI / Graphics:
+Tailwind CSS, Framer Motion, Three.js, React Three Fiber, Web Design
 
-Other Skills:
-- Problem Solving & Debugging
-- Team Collaboration
-- Creative & Technical (Acoustic Guitar, AI-Assisted Video Editing)
+Other:
+Problem Solving, Debugging, Team Collaboration, AI-assisted Video Editing
 
-CERTIFICATIONS AND CREDENTIALS
-- Introduction to Prompt Engineering with GitHub Copilot — Microsoft & Simplilearn SkillUp (2025): Prompt Engineering, AI Assistant Development, GitHub Copilot
-- Gemini Certified Educator — Google for Education (Issued Jan 2026): Generative AI with Gemini, AI in Education, Responsible AI Integration
-- Data Analytics Job Simulation — Deloitte via Forage (2025): Real-World Data Analysis, Forensic Technology, Business Insights
-- Introduction to Generative AI — Google Cloud & Simplilearn SkillUp (2025): Generative AI, LLM Fundamentals, Core AI Concepts
+------------------------
+CERTIFICATIONS
+------------------------
 
+- Gemini Certified Educator — Google for Education (2026)
+- Introduction to Prompt Engineering with GitHub Copilot — Microsoft & Simplilearn (2025)
+- Introduction to Generative AI — Google Cloud & Simplilearn (2025)
+- Data Analytics Job Simulation — Deloitte via Forage (2025)
+
+------------------------
+SPORTS & ACHIEVEMENTS
+------------------------
+
+- Football: Runner-up Trophy (Player)
+- Volleyball: Runner-up Trophy (Team Captain during Diploma)
+- Cricket: Vice Captain (AI/ML Branch Team)
+
+Enjoys chess and other board games.
+
+------------------------
+PERSONAL INTERESTS
+------------------------
+
+- Plays Acoustic Guitar
+- Learning Flute
+- Loves Anime (Favorites: Naruto, Attack on Titan)
+- Favorite Movie: Interstellar
+- Enjoys Christopher Nolan films and Indian classics
+- Interested in movies, web series, music, and creative technology
+
+------------------------
 AREAS OF INTEREST
-- Building real-world AI systems
+------------------------
+
+- Real-world AI systems
 - Interactive 3D web experiences
 - Automation
 - Scalable intelligent architectures
-
-CONTACT & LINKS
-Email: indrajeetgangawane08@gmail.com
-
-
-SCHOOL EDUCATION
-Saint Xavier’s High School
-10th Standard Percentage: 81.44%
-
-ONLINE PROFILES
-GitHub: https://github.com/ezyindra
-LinkedIn: https://www.linkedin.com/in/indra0/
-Instagram: https://www.instagram.com/ezyindra_/
-Portfolio: https://indra-portfolio-xi.vercel.app/
