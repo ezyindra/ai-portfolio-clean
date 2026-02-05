@@ -3,102 +3,98 @@ import { NextResponse } from "next/server";
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
+function extractJSON(text: string) {
+  const match = text.match(/\{[\s\S]*\}/);
+  if (!match) throw new Error("No JSON found");
+  return JSON.parse(match[0]);
+}
+
 export async function GET() {
   try {
     const token = process.env.OPENROUTER_API_KEY;
 
-    if (!token) {
-      throw new Error("Missing OPENROUTER_API_KEY");
-    }
-
-
-    // Force randomness every call
-    const seed = Math.floor(Math.random() * 1000000);
+    if (!token) throw new Error("Missing key");
 
     const prompt = `
-Random seed: ${seed}
+Return ONLY raw JSON.
 
-Generate EXACTLY 3 DIFFERENT cybersecurity multiple choice questions.
+Generate exactly 3 cybersecurity MCQ questions.
 
-RULES:
-- Must be NEW every request.
-- 4 options each.
-- Exactly ONE correct answer.
-- Topics: encryption, hashing, HTTPS, authentication, networking, web security.
-- Beginner to intermediate.
-- STRICT JSON ONLY.
-- No markdown.
-- No explanations.
+Rules:
+- 4 options each
+- exactly 1 correctIndex
+- beginner/intermediate
+- topics: HTTPS, hashing, auth, encryption, networking
 
-Return format:
+FORMAT:
 
 {
-  "questions": [
-    {
-      "question": "",
-      "options": ["", "", "", ""],
-      "correctIndex": 0
-    }
-  ]
+ "questions":[
+   {
+     "question":"",
+     "options":["A","B","C","D"],
+     "correctIndex":0
+   }
+ ]
 }
 `;
 
-    const upstream = await fetch(
-      "https://openrouter.ai/api/v1/chat/completions",
-      {
-        method: "POST",
-        headers: {
-          Authorization: `Bearer ${token}`,
-          "Content-Type": "application/json",
-          "HTTP-Referer": "http://localhost",
-          "X-Title": "Indra Vault",
-        },
-        body: JSON.stringify({
-          model: "openai/gpt-4o-mini",
-          temperature: 1.1,
-          top_p: 0.95,
-          max_tokens: 600,
-          messages: [{ role: "user", content: prompt }],
-        }),
-      }
-    );
-
-    const raw = await upstream.json();
-    const content = raw?.choices?.[0]?.message?.content;
-
-    if (!content) throw new Error("Empty response");
-
-    const parsed = JSON.parse(content);
-
-    return NextResponse.json(parsed, {
+    const res = await fetch("https://openrouter.ai/api/v1/chat/completions", {
+      method: "POST",
+      cache: "no-store",
       headers: {
-        "Cache-Control": "no-store, no-cache, must-revalidate",
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
       },
+      body: JSON.stringify({
+        model: "openai/gpt-4o-mini",
+        temperature: 0.9,
+        max_tokens: 500,
+        messages: [{ role: "user", content: prompt }],
+      }),
     });
 
-  } catch (err) {
-    console.error("Quiz API error:", err);
+    const raw = await res.json();
+    const content = raw?.choices?.[0]?.message?.content;
+
+    if (!content) throw new Error("Empty AI");
+
+    const parsed = extractJSON(content);
+
+    if (!parsed.questions?.length) throw new Error("No questions");
+
+    return NextResponse.json(parsed, {
+      headers: { "Cache-Control": "no-store" },
+    });
+  } catch (e) {
+    console.error("Quiz error:", e);
 
     return NextResponse.json(
       {
         questions: [
           {
-            question: "What does HTTPS mainly provide?",
+            question: "What does HTTPS primarily provide?",
+            options: ["Speed", "Encrypted communication", "SEO", "Caching"],
+            correctIndex: 1,
+          },
+          {
+            question: "What is hashing mainly used for?",
             options: [
-              "Speed",
-              "Encrypted communication",
+              "Encrypt files",
+              "Password storage",
               "Compression",
-              "SEO",
+              "Key exchange",
             ],
+            correctIndex: 1,
+          },
+          {
+            question: "Which ensures identity verification?",
+            options: ["Authorization", "Authentication", "Encryption", "Firewall"],
             correctIndex: 1,
           },
         ],
       },
-      {
-        headers: {
-          "Cache-Control": "no-store",
-        },
-      }
+      { headers: { "Cache-Control": "no-store" } }
     );
   }
 }

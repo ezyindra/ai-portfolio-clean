@@ -26,22 +26,38 @@ export default function EncryptionModal({
   const [loading, setLoading] = useState(false);
   const [failed, setFailed] = useState(false);
 
-  /* Pause background */
+  /* Pause background video */
   useEffect(() => {
     if (open) videoRef.current?.pause();
     else videoRef.current?.play().catch(() => {});
   }, [open, videoRef]);
 
-  /* Load fresh questions */
+  /* Load questions when opened */
+  useEffect(() => {
+    if (!open) return;
+
+    setQuestions([]);
+    setCurrent(0);
+    setScore(0);
+    setFailed(false);
+
+    loadQuestions();
+  }, [open]);
+
   const loadQuestions = async () => {
     setLoading(true);
-    setFailed(false);
     try {
-      const res = await fetch(`/api/encryption-quiz?ts=${Date.now()}`, {
+      const res = await fetch("/api/encryption-quiz", {
         cache: "no-store",
       });
+
       const data = await res.json();
-      setQuestions(data.questions || []);
+
+      if (Array.isArray(data?.questions)) {
+        setQuestions(data.questions);
+      } else {
+        setQuestions([]);
+      }
     } catch {
       setQuestions([]);
     } finally {
@@ -49,37 +65,37 @@ export default function EncryptionModal({
     }
   };
 
-  useEffect(() => {
-    if (open) loadQuestions();
-  }, [open]);
-
   const handleAnswer = (i: number) => {
-    const correct = i === questions[current]?.correctIndex;
-    if (correct) setScore((s) => s + 1);
+    if (!questions[current]) return;
+
+    const isCorrect = i === questions[current].correctIndex;
+    const newScore = score + (isCorrect ? 1 : 0);
+
+    if (isCorrect) setScore(newScore);
 
     const next = current + 1;
 
     if (next < questions.length) {
       setCurrent(next);
+      return;
+    }
+
+    // FINAL RESULT
+    if (newScore >= 2) {
+      onUnlock();
+      setOpen(false);
     } else {
-      const finalScore = score + (correct ? 1 : 0);
-
-      if (finalScore >= 2) {
-        onUnlock();
-        setOpen(false);
-      } else {
-        // ❌ FAILED
-        setFailed(true);
-      }
-
-      setCurrent(0);
-      setScore(0);
+      setFailed(true);
     }
   };
 
   const retry = () => {
     setFailed(false);
-    loadQuestions();
+    setOpen(false);
+
+    setTimeout(() => {
+      setOpen(true);
+    }, 200);
   };
 
   return (
@@ -88,11 +104,12 @@ export default function EncryptionModal({
 
       {open && (
         <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-xl flex items-center justify-center px-4">
-          <div className="max-w-lg w-full rounded-xl p-6
+          <div
+            className="max-w-lg w-full rounded-xl p-6
             bg-gradient-to-br from-[#020617] via-[#040b18] to-black
             border border-cyan-400/40
-            shadow-[0_0_60px_rgba(0,255,255,.25)]">
-
+            shadow-[0_0_60px_rgba(0,255,255,.25)]"
+          >
             {loading ? (
               <p className="text-center text-cyan-300">Decrypting…</p>
             ) : failed ? (
@@ -102,14 +119,14 @@ export default function EncryptionModal({
                 </h3>
 
                 <p className="text-white/60 text-sm">
-                  Your answers were incorrect. Please try again.
+                  Incorrect answers detected. Try again.
                 </p>
 
                 <button
                   onClick={retry}
                   className="mt-4 px-6 py-2 rounded-md
-                    bg-red-500/20 border border-red-400
-                    text-red-300 hover:bg-red-500/30 transition"
+                  bg-red-500/20 border border-red-400
+                  text-red-300 hover:bg-red-500/30 transition"
                 >
                   Retry Verification
                 </button>
@@ -121,7 +138,8 @@ export default function EncryptionModal({
                 </h3>
 
                 <p className="text-white/60 text-sm mb-3">
-                  Answer <span className="text-cyan-400 font-semibold">2 out of 3</span>{" "}
+                  Answer{" "}
+                  <span className="text-cyan-400 font-semibold">2 out of 3</span>{" "}
                   questions to unlock this vault.
                 </p>
 
@@ -141,9 +159,9 @@ export default function EncryptionModal({
                       key={i}
                       onClick={() => handleAnswer(i)}
                       className="w-full px-4 py-3 rounded-md text-left
-                        border border-cyan-400/30
-                        text-white bg-black/40
-                        hover:bg-cyan-400/15 hover:border-cyan-400 transition"
+                      border border-cyan-400/30
+                      text-white bg-black/40
+                      hover:bg-cyan-400/15 hover:border-cyan-400 transition"
                     >
                       {opt}
                     </button>
