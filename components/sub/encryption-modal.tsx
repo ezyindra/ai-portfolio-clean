@@ -29,7 +29,7 @@ export default function EncryptionModal({
   /* Pause background video */
   useEffect(() => {
     if (open) videoRef.current?.pause();
-    else videoRef.current?.play().catch(() => {});
+    else videoRef.current?.play().catch(() => { });
   }, [open, videoRef]);
 
   /* Load questions when opened */
@@ -47,9 +47,10 @@ export default function EncryptionModal({
   const loadQuestions = async () => {
     setLoading(true);
     try {
-      const res = await fetch("/api/encryption-quiz", {
+      const res = await fetch(`/api/encryption-quiz?t=${Date.now()}`, {
         cache: "no-store",
       });
+
 
       const data = await res.json();
 

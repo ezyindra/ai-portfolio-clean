@@ -3,35 +3,34 @@ import { NextResponse } from "next/server";
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
-function extractJSON(text: string) {
-  const match = text.match(/\{[\s\S]*\}/);
-  if (!match) throw new Error("No JSON found");
-  return JSON.parse(match[0]);
-}
-
 export async function GET() {
   try {
     const token = process.env.OPENROUTER_API_KEY;
 
-    if (!token) throw new Error("Missing key");
+    if (!token) throw new Error("Missing API key");
+
+    // Random entropy so every request differs
+    const seed = Math.random().toString(36).slice(2);
 
     const prompt = `
-Return ONLY raw JSON.
-
-Generate exactly 3 cybersecurity MCQ questions.
+Generate exactly 3 DIFFERENT cybersecurity multiple choice questions.
 
 Rules:
-- 4 options each
-- exactly 1 correctIndex
-- beginner/intermediate
-- topics: HTTPS, hashing, auth, encryption, networking
+- Always vary questions.
+- Each has 4 options.
+- Exactly ONE correct answer.
+- Topics: encryption, networking, web security, hashing, authentication.
+- Beginner/intermediate.
+- STRICT JSON ONLY.
 
-FORMAT:
+Seed:${seed}
+
+Return:
 
 {
  "questions":[
    {
-     "question":"",
+     "question":"...",
      "options":["A","B","C","D"],
      "correctIndex":0
    }
@@ -39,62 +38,62 @@ FORMAT:
 }
 `;
 
-    const res = await fetch("https://openrouter.ai/api/v1/chat/completions", {
+    const upstream = await fetch("https://openrouter.ai/api/v1/chat/completions", {
       method: "POST",
-      cache: "no-store",
       headers: {
         Authorization: `Bearer ${token}`,
         "Content-Type": "application/json",
+        "Cache-Control": "no-store",
       },
       body: JSON.stringify({
         model: "openai/gpt-4o-mini",
-        temperature: 0.9,
-        max_tokens: 500,
+        temperature: 1.1,
+        presence_penalty: 0.6,
+        frequency_penalty: 0.6,
         messages: [{ role: "user", content: prompt }],
       }),
     });
 
-    const raw = await res.json();
+    const raw = await upstream.json();
     const content = raw?.choices?.[0]?.message?.content;
 
-    if (!content) throw new Error("Empty AI");
+    if (!content) throw new Error("Empty AI response");
 
-    const parsed = extractJSON(content);
-
-    if (!parsed.questions?.length) throw new Error("No questions");
+    const parsed = JSON.parse(content);
 
     return NextResponse.json(parsed, {
-      headers: { "Cache-Control": "no-store" },
+      headers: {
+        "Cache-Control": "no-store, no-cache, must-revalidate",
+      },
     });
-  } catch (e) {
-    console.error("Quiz error:", e);
+  } catch (err) {
+    console.error("Quiz API error:", err);
 
     return NextResponse.json(
       {
         questions: [
           {
-            question: "What does HTTPS primarily provide?",
-            options: ["Speed", "Encrypted communication", "SEO", "Caching"],
-            correctIndex: 1,
+            question: "Which protocol encrypts web traffic?",
+            options: ["FTP", "HTTP", "HTTPS", "SMTP"],
+            correctIndex: 2,
           },
           {
-            question: "What is hashing mainly used for?",
-            options: [
-              "Encrypt files",
-              "Password storage",
-              "Compression",
-              "Key exchange",
-            ],
-            correctIndex: 1,
+            question: "What does hashing protect?",
+            options: ["Passwords", "Bandwidth", "Latency", "SEO"],
+            correctIndex: 0,
           },
           {
-            question: "Which ensures identity verification?",
-            options: ["Authorization", "Authentication", "Encryption", "Firewall"],
+            question: "Which enables identity verification?",
+            options: ["Caching", "Authentication", "Compression", "Routing"],
             correctIndex: 1,
           },
         ],
       },
-      { headers: { "Cache-Control": "no-store" } }
+      {
+        headers: {
+          "Cache-Control": "no-store",
+        },
+      }
     );
   }
 }
