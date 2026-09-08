@@ -1,0 +1,98 @@
+# Indrajeet — Preferences & Interests
+
+## Technology
+- Strong interest in Artificial Intelligence and Machine Learning.
+- Particularly interested in Generative AI, RAG, agentic AI, automation, intelligent applications, and AI-powered systems.
+- Interested in modern web development and interactive digital experiences.
+- Enjoys exploring technologies such as React, Next.js, Three.js, LangChain, LangGraph, FAISS, Supabase, and other emerging tools.
+- Interested in understanding whether a technology is genuinely useful before investing significant time into learning it.
+- Enjoys experimenting with new technologies through personal projects.
+
+## Programming
+- C++
+- Python
+- JavaScript
+- TypeScript
+
+## Web / Application Development
+- React
+- Next.js
+- Vite
+- HTML
+- CSS
+- PHP
+- MySQL
+- Tailwind CSS
+- Framer Motion
+- Three.js
+- React Three Fiber
+- Supabase
+
+## AI / Data
+- Machine Learning
+- Generative AI
+- Prompt Engineering
+- RAG
+- FAISS
+- Data Analytics
+- LangChain
+- LangGraph
+- BeautifulSoup
+- Tavily
+
+## Music
+- I play acoustic guitar and flute.
+- I enjoy both classical and Western music.
+- I don't like strictly separating music into categories or judging it only by genre.
+- My general attitude toward music is simple: music is music, and good music can come from very different styles.
+- I enjoy listening to music as a way to relax and enjoy creativity.
+- Favorite artists: [NOT PROVIDED]
+- Favorite specific songs: [NOT PROVIDED]
+
+## Sports
+- Cricket and football are my favorite sports.
+- I support Team India in cricket.
+- Favorite cricket players include Rohit Sharma and Virat Kohli.
+- In football, I enjoy watching players such as Lionel Messi, Neymar, Cristiano Ronaldo, and Kylian Mbappé.
+- I enjoy the competitive and strategic side of sports.
+- Sports have also influenced my appreciation for discipline, teamwork, strategy, and consistency.
+
+## Entertainment
+- I enjoy comedy and sitcom-style shows.
+- One of my favorite shows is Taarak Mehta Ka Ooltah Chashmah.
+- I also enjoy Friends.
+- I particularly enjoy science-fiction movies and stories.
+- Christopher Nolan is my favorite movie director.
+- I enjoy movies that make me think, especially stories involving science, space, time, technology, psychology, or unusual concepts.
+
+## Games
+- Currently, GTA V and Red Dead Redemption 2 are among my favorite games.
+- I enjoy games that provide a large world to explore rather than only focusing on short gameplay sessions.
+- Favorite games: GTA V, Red Dead Redemption 2.
+- Other favorite games: [NOT PROVIDED]
+
+## Space & Science
+- I am fascinated by crazy and surprising facts about space.
+- I enjoy learning about the universe, planets, stars, black holes, time, and other concepts that challenge the way we understand reality.
+- Space and science-fiction are particularly interesting to me because they combine imagination with real scientific questions.
+
+## Hobbies
+- Playing acoustic guitar.
+- Playing flute.
+- Sketching.
+- Exploring new places.
+- Listening to music.
+- Exploring new technologies.
+- Building software projects.
+- Experimenting with AI tools.
+- AI-assisted video editing.
+
+## Personal Opinions
+- I believe learning something is more valuable when I can actually build something with it.
+- I prefer practical knowledge over learning something only because it is currently trending.
+- I think AI should be treated as a tool that helps people think, build, research, and experiment rather than simply replacing human effort.
+- I believe strong fundamentals are still important even when using advanced AI tools.
+- I value curiosity because many good project ideas start simply by asking "what if?"
+- I think a good project should not only work technically but should also provide a good user experience.
+- I like experimenting with ambitious ideas even when they are difficult because the process itself teaches something valuable.
+- I believe consistency is one of the most important things I need to improve in my own development journey.

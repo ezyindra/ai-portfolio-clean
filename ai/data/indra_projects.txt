@@ -1,0 +1,235 @@
+# Indrajeet — Project Knowledge
+
+## KarNa
+
+### What it is
+- KarNa is a desktop-first productivity and writing application currently in progress.
+- It focuses on distraction-free writing, Kanban-style goals, and a custom dashboard experience.
+
+### Tech Stack
+- React
+- TypeScript
+- Vite
+- Tailwind CSS
+- Framer Motion
+
+### Built / In Progress
+- Modular React components for the editor, task boards, and navigation.
+- TypeScript-based state handling.
+- Animated layouts and transitions using Framer Motion.
+- Tailwind-driven responsive design.
+- Dual Light/Dark theme.
+- Frameless window layout designed to feel like a native desktop application.
+- Preparing local storage / SQLite integration.
+- Preparing Electron/Tauri desktop wrapper for offline-first deployment.
+
+### Why I created it
+- I created KarNa mainly for personal use.
+- I wanted a single place where I could manage my writing, goals, tasks, and schedule instead of depending on several different tools.
+- The idea was to create something that fits my own workflow rather than adapting my workflow to an existing productivity application.
+- I also wanted the project to be an opportunity to experiment with desktop-style interfaces and modern React development.
+
+### Hardest part
+- The hardest part is maintaining consistency throughout the development process.
+- A productivity application can look simple from the outside, but keeping different parts of the application connected and making the overall experience feel coherent requires a lot of attention.
+- Maintaining consistency in the design, functionality, and development process has been one of the biggest challenges.
+
+### Biggest learning
+- I learned that building a good application requires understanding carefully how every part should work together before implementing it.
+- Small decisions in architecture, UI, state management, and user experience can affect the entire application.
+- I also learned that making something "work" is different from making it feel properly designed and complete.
+
+### Future improvements
+- I want to continue improving the application based on my actual usage.
+- Planned areas include better local storage, SQLite integration, desktop packaging through Electron or Tauri, and a stronger offline-first experience.
+- Additional future improvements: [NOT PROVIDED]
+
+---
+
+## Agentic Deep Researcher
+
+### What it is
+- Agentic Deep Researcher is an autonomous AI research system currently in progress.
+- It is designed to plan research, search the web, scrape information, create embeddings, retrieve relevant information, and synthesize structured research reports.
+
+### Tech Stack
+- Python
+- LangChain
+- LangGraph
+- OpenAI API
+- FAISS
+- Tavily API
+- BeautifulSoup
+
+### Architecture
+- Multi-agent workflows using LangGraph.
+- Tool routing and state-based execution.
+- Tavily search and BeautifulSoup scraping.
+- FAISS vector storage for semantic retrieval.
+- RAG pipeline for structured, citation-aware reports.
+- Planner → Researcher → Synthesizer workflow.
+
+### Why I created it
+- I created it because I am interested in how AI systems can move beyond simple question-and-answer interactions and actually perform multi-step tasks.
+- Traditional search requires the user to manually search multiple sources, read them, compare information, and create a final understanding.
+- I wanted to experiment with an AI system that could perform more of this research workflow autonomously.
+- The project also gives me an opportunity to learn about agentic AI, RAG, vector databases, tool usage, and multi-agent workflows through a real implementation.
+
+### Most interesting part
+- The most interesting part is the multi-agent workflow.
+- Instead of treating the AI as one single model doing everything, different stages have different responsibilities.
+- The Planner decides what needs to be researched, the Researcher gathers relevant information, and the Synthesizer turns the collected information into a structured result.
+- The combination of agents, tools, retrieval, and state management makes the system feel more like an actual research workflow.
+
+### Hardest part
+- One of the difficult parts is making sure information flows correctly between different stages of the workflow.
+- Agentic systems can become complicated because one step depends on the output of another step.
+- Retrieval quality, tool selection, state management, and making the final answer reliable all require careful design.
+- Another challenge is preventing the system from producing a confident answer when the research itself is incomplete or unreliable.
+
+### Future improvements
+- Improve the planning and reasoning workflow.
+- Add better source evaluation and research verification.
+- Improve retrieval quality and document chunking.
+- Add better memory for longer research tasks.
+- Improve report formatting and citation handling.
+- Explore more specialized agents for fact checking, source comparison, and summarization.
+- Experiment with more advanced agentic workflows and autonomous task execution.
+---
+
+## Indra Insights
+
+### What it is
+- Indra Insights is an AI-powered article analysis platform.
+- It is a full-stack serverless platform designed to scrape and analyze articles through automated pipelines.
+
+### Tech Stack
+- React
+- TypeScript
+- Vite
+- Tailwind CSS
+- Supabase
+- PostgreSQL
+- Supabase Auth
+- Supabase Edge Functions
+- Recharts
+
+### Features
+- Automated content extraction.
+- AI-driven article analysis.
+- Interactive dashboards for credibility, bias, and emotional insights.
+- Secure authentication.
+- Historical data storage using PostgreSQL.
+- Serverless backend functionality using Supabase Edge Functions.
+
+### Project
+- https://indra-insights.vercel.app/
+
+### Why I created it
+- I created Indra Insights because I was interested in using AI to analyze written content rather than simply generating content.
+- Articles can contain different viewpoints, emotional language, and potential bias, so I wanted to experiment with turning an article into structured insights.
+- The project allowed me to combine AI, data visualization, backend development, authentication, databases, and modern frontend development in one application.
+
+### Biggest challenge
+- One of the biggest challenges was connecting multiple parts of the application into one reliable workflow.
+- Article extraction, AI analysis, database storage, authentication, and visualization all have to work together.
+- Making the application feel simple to the user while handling a more complicated backend process required careful thinking.
+
+### Biggest learning
+- I learned how different technologies can work together to form a complete product rather than just an isolated feature.
+- I gained experience with serverless development, Supabase, database-backed applications, authentication, data visualization, and AI-powered processing.
+- The project also taught me that presenting AI-generated information clearly is just as important as generating the information itself.---
+
+## Happy Child English School
+
+### What it is
+- A responsive school website designed to provide students, parents, and visitors with easy access to important school information.
+
+### Tech Stack
+- HTML
+- CSS
+- JavaScript
+- PHP
+- MySQL
+
+### Features
+- Admissions module.
+- Gallery.
+- Announcements.
+- Contact module.
+- MySQL-backed student enquiry form handling.
+- Admin-manageable content sections.
+- Cross-device accessibility.
+
+### Project
+- https://happychildenglishschool.in/
+
+### Why I created it
+- I created this project as an opportunity to build a real-world website rather than only working on practice or tutorial projects.
+- I wanted to understand how a website for an actual organization needs to be structured and presented.
+- The project gave me practical experience in combining frontend development with PHP and MySQL backend functionality.
+- It also helped me understand that a website is not only about writing code; it needs to be easy to navigate, responsive, informative, and useful for its intended users.
+- Working on a real school website helped me improve my understanding of client-oriented development and how technical decisions should be connected to the actual needs of users.
+
+### Biggest Challenge
+- One of the main challenges was making different parts of the website work together while keeping the interface simple and easy to use.
+- Handling forms, storing enquiry information in MySQL, and connecting the frontend with the PHP backend required understanding how the different layers of a web application communicate.
+- Making sure the website remained usable across different screen sizes was also an important part of the development process.
+
+### Biggest Learning
+- I learned the fundamentals of building a complete web application with both frontend and backend components.
+- The project gave me practical experience with PHP, MySQL, form handling, and database-backed functionality.
+- More importantly, it taught me how different development decisions should be made according to the actual users and purpose of a website rather than only focusing on the technology being used.
+---
+
+## 3D Personal Portfolio
+
+### What it is
+- A high-performance desktop-first 3D personal portfolio featuring immersive WebGL graphics, interactive animations, and a personalized AI assistant.
+
+### Tech Stack
+- Next.js
+- React
+- TypeScript
+- Three.js
+- React Three Fiber
+- Tailwind CSS
+- Framer Motion
+
+### Features
+- Real-time 3D scenes.
+- Interactive camera controls.
+- Smooth UI transitions.
+- Responsive layout.
+- Optimized asset loading.
+- Lazy-loaded 3D assets.
+- Component-level code splitting.
+- GPU-friendly rendering.
+- Interactive AI assistant connected to a personal knowledge base.
+
+### Project
+- https://indra-portfolio-xi.vercel.app/
+
+### Why I created it
+- I wanted my portfolio to be more than a traditional resume website.
+- Since I enjoy both technology and visual creativity, I wanted to combine my software development skills with 3D graphics and interactive design.
+- I wanted visitors to experience my projects and personality rather than simply reading a list of skills.
+- The portfolio also became an opportunity to experiment with Three.js, React Three Fiber, animations, performance optimization, and AI integration.
+
+### Hardest part
+- One of the hardest parts was balancing visual complexity with performance.
+- 3D graphics can become expensive for the browser, so the application needs to be designed carefully.
+- Optimizing 3D assets, loading behavior, rendering, animations, and normal UI components while keeping the experience smooth required a lot of experimentation.
+
+### Biggest learning
+- I learned that an impressive visual experience still needs good engineering underneath it.
+- Performance, component structure, loading strategy, and user experience are just as important as the visual design.
+- I also learned how powerful it can be to combine different technologies, such as Next.js, React, Three.js, Framer Motion, and AI, into one cohesive application.
+
+### Future improvements
+- Continue improving the AI assistant and make it more conversational and personalized.
+- Add more personal knowledge and project stories to the assistant.
+- Improve the 3D experience and interactions.
+- Continue optimizing performance.
+- Add more interactive demonstrations of projects.
+- Explore additional AI-powered portfolio features.

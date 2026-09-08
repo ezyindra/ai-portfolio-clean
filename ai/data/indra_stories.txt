@@ -1,0 +1,92 @@
+# Indrajeet — Personal Stories & Behind-the-Scenes Context
+
+## Story 1
+### Title
+From "I Want to Try This" to Actually Building It
+
+### What happened
+- One thing that describes my personality is that when I discover an interesting technology, I usually don't want to stop at simply reading about it.
+- I start researching it online, compare information from different AI tools, talk to people about whether it is actually useful, and then try to understand how I could use it in a real project.
+- This curiosity has gradually led me from learning individual technologies to building complete applications around them.
+
+### Why it matters
+- It represents how I approach technology.
+- I don't want to learn something just because it is trending. I want to understand what it can actually do and whether I can turn it into something useful.
+
+### What I learned
+- Curiosity is useful, but curiosity becomes much more valuable when it turns into experimentation and actual implementation.
+
+---
+
+## Story 2
+### Title
+The Problem With Having Too Many Ideas
+
+### What happened
+- I often become interested in several technologies and project ideas at the same time.
+- One idea can lead to another: AI leads to RAG, RAG leads to agents, agents lead to automation, and suddenly there are several things I want to learn and build.
+- This makes technology exciting, but it also makes consistency and focus important challenges for me.
+
+### Why it matters
+- It explains one of the areas I am actively trying to improve.
+- Having curiosity is useful, but I also need the discipline to stay with a project long enough to make it genuinely complete.
+
+### What I learned
+- Starting something is easy when you are excited about it.
+- Finishing and consistently improving it requires discipline.
+- I am trying to become better at balancing exploration with focused execution.
+
+---
+
+## Story 3
+### Title
+Making a Project Feel Like a Real Product
+
+### What happened
+- While building projects, I gradually realized that making something technically functional is only one part of development.
+- I started paying more attention to UI, animations, responsiveness, performance, structure, and how the user actually experiences the application.
+- This became especially clear while working on my 3D portfolio and other interactive applications.
+
+### Why it matters
+- It changed the way I think about software development.
+- I don't want my projects to look like demonstrations of code. I want them to feel like actual products that someone could use and enjoy.
+
+### What I learned
+- Good software needs both engineering and experience.
+- A technically strong application can still feel incomplete if the user experience is poor.
+- Small details can make a large difference in how people perceive a product.
+
+---
+
+## Interesting / Funny Fact
+- I can go from researching a serious AI/ML topic to watching comedy shows or thinking about completely unrelated things like crazy facts about space.
+- I enjoy both technical and creative activities, from programming and AI experimentation to playing guitar, flute, and sketching.
+- My interests are quite broad, and I genuinely enjoy discovering something new even when it is outside my main field.
+
+## Personal Opinions
+- I believe curiosity is one of the most valuable qualities for someone working in technology.
+- I don't think people should learn technologies only because they are popular. Understanding why something is useful is more important.
+- I believe AI is most powerful when humans use it as a tool for thinking, researching, experimenting, and creating.
+- I think strong programming fundamentals still matter even in the age of AI.
+- I believe projects should be judged not only by how complicated their technology is but also by whether they solve a meaningful problem.
+- I prefer building and experimenting over simply collecting certificates.
+- I believe consistency is something I need to continuously improve.
+
+## Memorable Project Moment
+- One of the most satisfying moments in a project is when something that originally existed only as an idea finally becomes a working application.
+- Seeing different pieces such as frontend, backend, AI, animations, databases, and APIs work together makes the effort feel worthwhile.
+- I particularly enjoy the stage where a project starts feeling like a real product rather than just a collection of code.
+
+## Failure / Debugging Story
+- A recurring part of my development journey is spending much longer than expected debugging something that initially looks like a small problem.
+- Instead of immediately giving up, I usually research the problem, check different explanations, test possible solutions, and use AI tools to understand what might be happening.
+- These situations have taught me that debugging is not simply about finding the correct line of code. It is about understanding the system well enough to identify why the problem exists.
+
+## Project Decision I Am Proud Of
+- I am proud of choosing to build projects that combine multiple areas of technology instead of limiting myself to simple tutorial projects.
+- Projects such as my 3D portfolio, Indra Insights, KarNa, and Agentic Deep Researcher allow me to explore different areas including AI, web development, databases, automation, 3D graphics, and user experience.
+- They may not always be perfect, but each project represents an attempt to learn something by actually building it.
+
+## Personal Growth
+- My biggest goal is not simply to know more technologies.
+- I want to become someone who can take an idea, research the problem, choose the right technologies, build the system, debug it, improve it, and eventually turn it into something people can actually use.

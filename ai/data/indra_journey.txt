@@ -1,0 +1,53 @@
+# Indrajeet — Learning & Career Journey
+
+## Early Interest
+- What first made me interested in computers/coding: [NOT PROVIDED]
+
+## School
+- Saint Xavier’s High School, CIDCO N1, Aurangabad.
+- 10th percentage: 81.44%.
+
+## Diploma
+- CSMSS Chh. Shahu College of Polytechnic.
+- Diploma in Artificial Intelligence & Machine Learning.
+- Graduated June 2025.
+- Aggregate: 82.22%.
+- Relevant coursework: Data Structures & Algorithms, Database Systems, Web Development, Machine Learning.
+
+## B.Tech
+- B.Tech in Computer Science (AI & ML).
+- MGM University, Institute of Information and Communication Technology (IICT).
+- Entered through Direct Second Year.
+- Current stage: 2nd year.
+
+## Industry Experience
+- Application Developer Intern at Naskraft IT Solutions Pvt. Ltd.
+- May 2024 – July 2024.
+- Completed a 12-week internship.
+- Contributed to the Creed Play application using JavaScript and NetBeans.
+- Worked across requirement analysis, coding, debugging, and testing.
+- Strengthened JavaScript, problem-solving, and collaborative development skills.
+
+## Certifications
+- Introduction to Prompt Engineering with GitHub Copilot — Microsoft & Simplilearn SkillUp (2025).
+- Introduction to Generative AI — Google Cloud & Simplilearn SkillUp (2025).
+- Data Analytics Job Simulation — Deloitte via Forage (2025).
+- Gemini Certified Educator — Google for Education (January 2026).
+
+## Current Stage
+- Building practical projects while developing deeper skills in AI/ML, Generative AI, RAG, agentic systems, and modern web development.
+- Current projects: KarNa and Agentic Deep Researcher.
+
+## Early Interest
+- My interest in computers grew from curiosity about how software, websites, games, and digital systems actually work.
+- I became interested not only in using technology but also in understanding how things are built behind the scenes.
+- Over time, that curiosity turned into an interest in programming and eventually into AI and Machine Learning.
+- What started as curiosity gradually became a habit of experimenting, researching, building projects, and learning new technologies.
+
+## Future
+- I am currently focused on completing my B.Tech and strengthening my technical fundamentals.
+- I want to become much stronger in Data Structures & Algorithms, software development, AI/ML, Generative AI, and system design.
+- I want to participate in more coding programs, hackathons, technical events, internships, and real-world projects.
+- One of my major career goals is to work at a top-tier technology company such as Google, Microsoft, or another company where I can work on challenging technology problems.
+- Before reaching that stage, I want to build a strong portfolio of meaningful projects and develop the ability to design and build systems independently.
+- I want my career to combine strong software engineering fundamentals with AI/ML and intelligent systems.

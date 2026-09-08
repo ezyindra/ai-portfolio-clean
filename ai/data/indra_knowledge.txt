@@ -1,0 +1,423 @@
+========================
+INDRA – PERSONAL PROFILE
+========================
+
+FULL NAME
+Indrajeet Ajay Gangawane
+
+
+------------------------
+BASIC INFO
+------------------------
+
+Location:
+Chhatrapati Sambhajinagar (Aurangabad), Maharashtra, India
+
+Portfolio:
+https://indra-portfolio-xi.vercel.app/
+
+
+------------------------
+ONLINE PRESENCE
+------------------------
+
+GitHub:
+https://github.com/ezyindra
+
+LinkedIn:
+https://www.linkedin.com/in/indra0/
+
+Instagram:
+https://www.instagram.com/ezyindra_/
+
+Portfolio:
+https://indra-portfolio-xi.vercel.app/
+
+
+------------------------
+PROFESSIONAL SUMMARY
+------------------------
+
+Indrajeet is an AI & Machine Learning practitioner with hands-on
+experience building real-world, interactive systems that combine
+intelligent models with modern web technologies, immersive 3D
+experiences, and automation.
+
+He is particularly interested in Artificial Intelligence,
+Machine Learning, Generative AI, RAG systems, agentic AI,
+automation, modern web development, and intelligent applications.
+
+He has a strong foundation in Data Structures & Algorithms using
+C++ and is increasingly focused on scalable system design and
+intelligent architectures.
+
+He enjoys learning through practical experimentation and turning
+ideas into working projects.
+
+He also brings leadership, discipline, teamwork, and strategic
+thinking from sports, along with creativity through music,
+sketching, and other interests.
+
+
+------------------------
+EDUCATION
+------------------------
+
+Current:
+
+Bachelor of Technology (B.Tech)
+Computer Science (AI & ML)
+
+Dr. Babasaheb Ambedkar Technological University (BATU)
+
+Direct Second Year (DSY) Entry
+
+Currently in 2nd Year
+
+
+Diploma:
+
+Diploma in Artificial Intelligence & Machine Learning
+
+CSMSS Chh. Shahu College of Polytechnic
+Chhatrapati Sambhajinagar
+
+Graduated: June 2025
+
+Aggregate: 82.22%
+
+
+Relevant Coursework:
+
+- Data Structures & Algorithms
+- Database Systems
+- Web Development
+- Machine Learning
+
+
+School:
+
+Saint Xavier’s High School
+State Board, Convent School
+
+CIDCO N1, Aurangabad
+
+10th Percentage: 81.44%
+
+
+------------------------
+WORK EXPERIENCE
+------------------------
+
+Application Developer Intern
+
+Naskraft IT Solutions Pvt. Ltd.
+Application Development Start-up
+Chhatrapati Sambhajinagar, India
+
+May 2024 – July 2024
+
+- Completed a 12-week internship contributing to the CREED Play
+  application.
+- Built and enhanced application features using JavaScript
+  in NetBeans IDE.
+- Worked across the development lifecycle including requirement
+  analysis, coding, debugging, and testing.
+- Strengthened JavaScript proficiency, problem-solving abilities,
+  and collaborative development practices in a professional
+  IT environment.
+
+
+------------------------
+PROJECTS
+------------------------
+
+Project 1:
+Indra Insights – AI-Powered Article Analysis Platform
+
+Live:
+https://indra-insights.vercel.app/
+
+Tech Stack:
+React, TypeScript, Vite, Tailwind CSS,
+Supabase, PostgreSQL, Supabase Auth,
+Supabase Edge Functions, Recharts
+
+Key Outcomes:
+
+- Built a full-stack serverless platform to scrape and analyze
+  articles.
+- Implemented Supabase Edge Functions for content extraction
+  and AI-driven analysis.
+- Developed dashboards to visualize credibility, bias,
+  and emotional insights.
+- Integrated Supabase Auth and PostgreSQL for secure access
+  and historical data storage.
+
+
+------------------------
+
+Project 2:
+Happy Child English School – Official Website
+
+Live:
+https://happychildenglishschool.in/
+
+Tech Stack:
+HTML, CSS, JavaScript, PHP, MySQL
+
+Key Outcomes:
+
+- Developed a responsive school website with admissions,
+  gallery, announcements, and contact modules.
+- Implemented backend form handling with MySQL for student
+  enquiry storage.
+- Built admin-manageable content sections.
+- Optimized the UI for cross-device accessibility.
+
+
+------------------------
+
+Project 3:
+3D Personal Portfolio Website
+
+Live:
+https://indra-portfolio-xi.vercel.app/
+
+Tech Stack:
+Next.js, React, TypeScript, Three.js,
+React Three Fiber, Tailwind CSS, Framer Motion
+
+Key Outcomes:
+
+- Built a high-performance 3D portfolio with immersive
+  WebGL graphics.
+- Implemented real-time 3D scenes using React Three Fiber.
+- Used Framer Motion for smooth animations and transitions.
+- Applied performance optimizations including lazy loading,
+  code splitting, and GPU-friendly rendering.
+- Combined 3D graphics, modern web development, animations,
+  and AI into an interactive portfolio experience.
+
+
+------------------------
+CURRENT WORKING PROJECTS
+------------------------
+
+Project 4:
+KarNa – Desktop Productivity & Writing Application
+
+Status:
+In Progress
+
+Tech Stack:
+React, TypeScript, Vite, Tailwind CSS, Framer Motion
+
+Key Work:
+
+- Building a distraction-free writing and productivity
+  application.
+- Includes Kanban-style goal management.
+- Includes a custom dashboard and writing experience.
+- Uses modular React components with TypeScript state handling.
+- Uses Framer Motion for animated layouts.
+- Includes dual Light/Dark themes.
+- Designed with a frameless desktop-style interface.
+- Preparing SQLite/local storage integration.
+- Preparing Electron/Tauri integration for an offline-first
+  desktop experience.
+
+Personal Purpose:
+
+- Originally created for personal use.
+- The goal is to keep writing, tasks, goals, and schedule
+  organized in one place.
+- The project also provides an opportunity to experiment with
+  desktop application design and modern React development.
+
+
+------------------------
+
+Project 5:
+Agentic Deep Researcher – Autonomous AI Research System
+
+Status:
+In Progress
+
+Tech Stack:
+Python, LangChain, LangGraph, OpenAI API,
+FAISS, Tavily API, BeautifulSoup
+
+Key Work:
+
+- Building an autonomous AI research pipeline.
+- Uses multi-agent workflows with LangGraph.
+- Integrates Tavily for web search.
+- Uses BeautifulSoup for web scraping.
+- Uses FAISS for semantic retrieval.
+- Implements a RAG pipeline for research.
+- Designed around a Planner → Researcher → Synthesizer workflow.
+- The system is intended to autonomously plan research,
+  gather information, retrieve relevant content, and
+  synthesize structured research reports.
+
+
+------------------------
+TECHNICAL SKILLS
+------------------------
+
+Programming:
+
+- C++
+- JavaScript
+- TypeScript
+- Python
+
+
+Web Development:
+
+- React
+- Next.js
+- Vite
+- HTML
+- CSS
+- PHP
+- MySQL
+
+
+AI / ML:
+
+- Machine Learning
+- Generative AI
+- Prompt Engineering
+- RAG Pipelines
+- FAISS
+- Data Analytics
+- LangChain
+- LangGraph
+- Agentic AI
+
+
+UI / Graphics:
+
+- Tailwind CSS
+- Framer Motion
+- Three.js
+- React Three Fiber
+- Web Design
+
+
+Other:
+
+- Problem Solving
+- Debugging
+- Team Collaboration
+- AI-assisted Video Editing
+
+
+------------------------
+CERTIFICATIONS
+------------------------
+
+- Gemini Certified Educator — Google for Education (2026)
+- Introduction to Prompt Engineering with GitHub Copilot
+  — Microsoft & Simplilearn (2025)
+- Introduction to Generative AI
+  — Google Cloud & Simplilearn (2025)
+- Data Analytics Job Simulation
+  — Deloitte via Forage (2025)
+
+
+------------------------
+SPORTS & ACHIEVEMENTS
+------------------------
+
+- Football: Runner-up Trophy (Player)
+- Volleyball: Runner-up Trophy
+  — Team Captain during Diploma
+- Cricket: Vice Captain
+  — AI/ML Branch Team
+
+Also enjoys chess and other board games.
+
+
+------------------------
+PERSONAL INTERESTS
+------------------------
+
+Music:
+
+- Plays acoustic guitar.
+- Learning/playing flute.
+- Enjoys both classical and Western music.
+- Believes music should not always be separated into strict
+  categories — music is music.
+
+
+Sports:
+
+- Enjoys cricket and football.
+- Supports Team India.
+- Favorite cricket players include Rohit Sharma and Virat Kohli.
+- Enjoys watching Lionel Messi, Neymar, Cristiano Ronaldo,
+  and Kylian Mbappé in football.
+
+
+Entertainment:
+
+- Enjoys Taarak Mehta Ka Ooltah Chashmah.
+- Enjoys Friends.
+- Likes science-fiction movies.
+- Christopher Nolan is his favorite director.
+- Interstellar is one of his favorite movies.
+- Enjoys Indian classics as well.
+
+
+Games:
+
+- Currently enjoys GTA V.
+- Currently enjoys Red Dead Redemption 2.
+
+
+Other Interests:
+
+- Sketching.
+- Exploring new places.
+- Anime.
+- Naruto.
+- Attack on Titan.
+- Space and astronomy.
+- Crazy and surprising facts about the universe.
+- Creative technology.
+
+
+------------------------
+AREAS OF INTEREST
+------------------------
+
+- Real-world AI systems
+- Artificial Intelligence & Machine Learning
+- Generative AI
+- Agentic AI
+- RAG systems
+- Automation
+- Interactive 3D web experiences
+- Modern web applications
+- Scalable intelligent architectures
+- AI-powered products
+
+
+------------------------
+CAREER GOALS
+------------------------
+
+- Become a strong AI/ML and software developer.
+- Strengthen Data Structures & Algorithms.
+- Gain more real-world development experience.
+- Participate in coding programs, hackathons, internships,
+  and technical events.
+- Build meaningful and technically strong projects.
+- Eventually work at a top-tier technology company such as
+  Google, Microsoft, or another major technology company.
+- Develop strong foundations in software engineering, AI/ML,
+  system design, and intelligent architectures.

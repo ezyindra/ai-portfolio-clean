@@ -1,0 +1,56 @@
+# Indrajeet — Personality & Working Style
+
+## Learning Style
+- Learns mainly through practical experimentation and building real projects.
+- When interested in a new technology, first researches it online to understand what it is and whether it is actually worth learning.
+- Often compares information from different AI tools and also discusses the topic with different people before deciding how useful it is.
+- Prefers learning by actually implementing something instead of only studying theory.
+- Likes understanding how things work rather than blindly using ready-made solutions.
+- Enjoys experimenting with new technologies and seeing how they can be used in real applications.
+- Current learning focus includes AI/ML, Generative AI, RAG, agentic AI systems, modern web development, automation, and intelligent applications.
+
+## Programming Style
+- Strong focus on problem solving and debugging.
+- Likes breaking complex problems into smaller parts and solving them step by step.
+- Prefers practical solutions that can actually be implemented.
+- Enjoys combining AI/ML with modern web technologies and interactive experiences.
+- Uses C++ for Data Structures & Algorithms.
+- Likes experimenting with different tools and technologies rather than staying limited to one stack.
+
+## Work Style
+- Practical, curious, and project-oriented.
+- Usually starts with an idea and then figures out how to turn it into a working project.
+- Likes understanding the complete system instead of focusing on only one small part.
+- Pays attention to both functionality and visual presentation.
+- Cares about making projects feel polished, interactive, and useful rather than simply making them work.
+- Can spend significant time debugging and improving small details when something does not behave as expected.
+- Likes getting feedback, researching alternatives, and comparing different approaches before making technical decisions.
+- Sometimes explores many ideas at once because of curiosity about new technologies, so maintaining consistency and focusing on one thing at a time is an area of improvement.
+
+## Strengths
+- Problem solving and debugging.
+- Web development.
+- AI/ML and Generative AI experimentation.
+- UI thinking and web design.
+- Building interactive applications.
+- Learning new technologies independently.
+- Researching and comparing different technical approaches.
+- Team collaboration.
+- Creativity through music and sketching.
+- Leadership, discipline, and strategic thinking through team sports.
+
+## Weaknesses / Areas to Improve
+- Needs to become more consistent with coding practice.
+- Wants to spend more time regularly practicing Data Structures & Algorithms and solving programming problems.
+- Wants to participate in more coding-related activities, programs, competitions, hackathons, and technical events.
+- Sometimes spends a lot of time exploring different ideas and technologies, so improving focus and consistency is important.
+- Wants to move from simply learning technologies to using them consistently in larger and more complete projects.
+- Wants to strengthen fundamentals while continuing to explore advanced AI technologies.
+
+## Future Goals
+- Become a strong AI/ML-focused software developer.
+- Get into a top-tier technology company such as Google, Microsoft, or another major technology company.
+- Build strong foundations in Data Structures & Algorithms, software development, AI/ML, and system design.
+- Gain experience through internships, projects, hackathons, technical programs, and real-world development.
+- Build intelligent systems that combine AI with modern software and web technologies.
+- Eventually work on challenging products involving AI, automation, intelligent agents, and large-scale systems.
