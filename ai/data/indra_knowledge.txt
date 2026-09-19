@@ -5,13 +5,33 @@ INDRA – PERSONAL PROFILE
 FULL NAME
 Indrajeet Ajay Gangawane
 
+PREFERRED NAME
+Indra
+
 
 ------------------------
 BASIC INFO
 ------------------------
 
-Location:
+DATE OF BIRTH
+06 February 2006
+
+AGE
+Indrajeet is currently 20 years old.
+
+NATIONALITY
+Indian
+
+LOCATION
 Chhatrapati Sambhajinagar (Aurangabad), Maharashtra, India
+
+CURRENT STATUS
+ student in Artificial Intelligence & Machine Learning.
+
+CURRENT EDUCATION STATUS
+Currently pursuing Bachelor of Technology (B.Tech)
+Currently in 2nd Year
+Direct Second Year (DSY) Entry
 
 Portfolio:
 https://indra-portfolio-xi.vercel.app/
@@ -421,3 +441,79 @@ CAREER GOALS
   Google, Microsoft, or another major technology company.
 - Develop strong foundations in software engineering, AI/ML,
   system design, and intelligent architectures.
+
+
+------------------------
+PERSONAL PROFILE / BASIC QUESTION GUIDANCE
+------------------------
+
+If someone asks Indra AI basic personal questions about
+Indrajeet, use the information in this knowledge file as the
+primary source.
+
+Important personal details:
+
+- Full name: Indrajeet Ajay Gangawane
+- Preferred name: Indra
+- Date of birth: 06 February 2006
+- Current age: 20 years old
+- Nationality: Indian
+- Location: Chhatrapati Sambhajinagar (Aurangabad), Maharashtra, India
+- Current education: B.Tech in Computer Science (AI & ML)
+- University: Dr. Babasaheb Ambedkar Technological University (BATU)
+- Current year: 2nd Year
+- Admission route: Direct Second Year (DSY)
+- Previous qualification: Diploma in Artificial Intelligence & Machine Learning
+- Diploma college: CSMSS Chh. Shahu College of Polytechnic
+- Diploma completion: June 2025
+- Diploma aggregate: 82.22%
+- School: Saint Xavier’s High School
+- 10th percentage: 81.44%
+
+If asked about his birthday:
+- His date of birth is 06 February 2006.
+- His birthday is on 6 February.
+
+If asked about his age:
+- Indrajeet is currently 20 years old.
+
+If asked about his education:
+- He is currently pursuing B.Tech in Computer Science with
+  a focus on Artificial Intelligence & Machine Learning at BATU.
+- He entered through Direct Second Year (DSY) and is currently
+  in his 2nd year.
+- Before B.Tech, he completed a Diploma in Artificial Intelligence
+  & Machine Learning with an aggregate of 82.22%.
+
+If asked about his hobbies:
+- Mention guitar, flute, sketching, exploring new places,
+  watching movies/web series, music, technology, software
+  projects, AI tools, and creative technology.
+
+If asked about his interests:
+- Mention AI/ML, Generative AI, Agentic AI, RAG, automation,
+  modern web development, 3D experiences, software engineering,
+  system design, space/astronomy, music, sports, and creative technology.
+
+If asked about his career:
+- Explain that he wants to become a strong AI/ML and software
+  developer and build intelligent, scalable systems.
+- He is focused on DSA, software engineering, AI/ML, system design,
+  internships, projects, hackathons, and technical events.
+- He eventually wants to work at a top-tier technology company
+  such as Google, Microsoft, or another major technology company.
+
+If asked about his personality:
+- Describe him as curious, practical, project-oriented,
+  experimental, creative, and interested in learning by building.
+- He enjoys researching technologies before deciding what to learn.
+- He likes turning ideas into working products.
+- He values practical learning and strong technical foundations.
+- He is continuously working on improving consistency,
+  DSA practice, and completing larger projects.
+
+If asked about information that is not present in this knowledge file:
+- Do not invent or guess personal information.
+- Clearly state that the information is not currently available.
+- Do not present assumptions as facts.
+- Keep the response natural and conversational.

@@ -12,7 +12,9 @@ export const Contact = () => {
 
   const [status, setStatus] = useState<"success" | "error" | null>(null);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
@@ -30,14 +32,24 @@ export const Contact = () => {
         },
         "NywTcVdM3hdhAxwf_"
       )
-      .then(() => {
+      .then((response) => {
+        console.log("✅ Email sent successfully:", response);
+
         setStatus("success");
-        setFormData({ name: "", email: "", message: "" });
+
+        setFormData({
+          name: "",
+          email: "",
+          message: "",
+        });
 
         setTimeout(() => setStatus(null), 4000);
       })
-      .catch(() => {
+      .catch((error) => {
+        console.error("❌ EmailJS Error:", error);
+
         setStatus("error");
+
         setTimeout(() => setStatus(null), 4000);
       });
   };
@@ -100,10 +112,17 @@ export const Contact = () => {
 
       <div className="mt-10 text-gray-400 text-sm text-center">
         <p>
-          Email: <span className="text-white">indrajeetgangawane08@gmail.com</span>
+          Email:{" "}
+          <span className="text-white">
+            indrajeetgangawane08@gmail.com
+          </span>
         </p>
+
         <p>
-          Phone: <span className="text-white">+91 7020242878</span>
+          Phone:{" "}
+          <span className="text-white">
+            +91 7020242878
+          </span>
         </p>
       </div>
 
